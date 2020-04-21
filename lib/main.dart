@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'constants.dart';
 
 void main(){
@@ -15,12 +16,8 @@ class TextInput extends StatefulWidget {
 
 
 class UserTextInput extends State<TextInput>{
-  String userText = "";
-  double userNumber = 0.0;
-  String category = "";
-
   final TextEditingController controller = new TextEditingController();
-
+  String convertedResult = "";
   @override
   Widget build(BuildContext context){
     return new Scaffold(
@@ -42,17 +39,21 @@ class UserTextInput extends State<TextInput>{
                 onSubmitted: (String str){
                   setState(() {
                     List result = this.praseText(str);
-                    userNumber = result[0];
-                    userText = result[1];
-                    category = this.getUserConversionRequest(userText)[0];
+                    List userConversions = this.getUserConversionRequest(result[1]);
+
+                    double userUnitToConvert = result[0];
+                    String selectedUnit = userConversions[0];
+                    double selectedValue = userConversions[1];
+                    String selectedCategory = userConversions[2];
+
+                    convertedResult = this.convertToRandomUnit(selectedCategory, selectedUnit, userUnitToConvert);
                   });
                   // Remove text from textbox
                   controller.text = "";
                 },
               ),
-              new Text("(" + this.userText + ", " + this.userNumber.toString() + ")"),
-              new Text("Found value in map: $category")
-            ] 
+              new Text("$convertedResult"),
+            ], 
           ),
         ),
       )
@@ -82,16 +83,37 @@ class UserTextInput extends State<TextInput>{
       // The key is a new map, so iterate over it as well
       categoryValues.forEach((unitName, unitValue){
         if (inputStr == unitName){
-          output = [unitName, unitValue];
+          output = [unitName.toString(), unitValue.toDouble(), categoryName.toString()];
         }
       }
       )));
       return output;   
   }
 
-  generateRandomSize(inUnit, inUnitValue){
-    // Pick random unit from constants.convertTo and convert to it!
+  String convertToRandomUnit(inCategory, inUnit, inUnitValue){
+    String outStr = "";
+    double calculatedValue = 0.0;
+    double conversionValue = 0.0;
+    String toUnit = "";
 
+    // Get size of the convertTo map
+    int maxSize = convertTo.length;
+
+    // Pick random unit from constants.convertTo and convert to it!
+    var rng = new Random();
+    int randEntryLoc = rng.nextInt(maxSize);
+    toUnit = convertTo[inCategory].keys.toList()[randEntryLoc].toString();
+    conversionValue = convertTo[inCategory][toUnit].toDouble();
+
+    // Do conversion:
+    calculatedValue = conversionValue * inUnitValue;
+
+
+    outStr = inUnitValue.toString() + " " 
+             + inUnit.toString() + " is " 
+             + calculatedValue.toString() + " " + toUnit;
+
+    return outStr;
   }
 
 }
