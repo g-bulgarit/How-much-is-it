@@ -11,7 +11,6 @@ void main(){
 class TextInput extends StatefulWidget {
   @override
   UserTextInput createState() => new UserTextInput();
-
 }
 
 
@@ -38,14 +37,18 @@ class UserTextInput extends State<TextInput>{
                 ),
                 onSubmitted: (String str){
                   setState(() {
+                    // On submit, calculate stuff and call the build method again.
+                    // Parse user input with regex
                     List result = this.praseText(str);
                     List userConversions = this.getUserConversionRequest(result[1]);
 
+                    // Retain some info in variables
                     double userUnitToConvert = result[0];
                     String selectedUnit = userConversions[0];
                     double multiplier = userConversions[1];
                     String selectedCategory = userConversions[2];
 
+                    // Do the conversion and store it in the class' variable.
                     convertedResult = this.convertToRandomUnit(selectedCategory, selectedUnit, userUnitToConvert, multiplier);
                   });
                   // Remove text from textbox
@@ -108,7 +111,6 @@ class UserTextInput extends State<TextInput>{
 
     // Do conversion:
     calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue;
-
 
     outStr = inUnitValue.toString() + " " 
              + inUnit.toString() + " is " 
