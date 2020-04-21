@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 void main(){
   runApp(new MaterialApp(
@@ -16,6 +17,7 @@ class TextInput extends StatefulWidget {
 class UserTextInput extends State<TextInput>{
   String userText = "";
   double userNumber = 0.0;
+  String category = "";
 
   final TextEditingController controller = new TextEditingController();
 
@@ -39,37 +41,23 @@ class UserTextInput extends State<TextInput>{
                 ),
                 onSubmitted: (String str){
                   setState(() {
-                    //final Tuple2<double, String> result = this.praseText(str);
                     List result = this.praseText(str);
                     userNumber = result[0];
                     userText = result[1];
+                    category = this.getUserConversionRequest(userText)[0];
                   });
                   // Remove text from textbox
                   controller.text = "";
                 },
               ),
-              new Text("(" + this.userText + "," + this.userNumber.toString() + ")")
+              new Text("(" + this.userText + ", " + this.userNumber.toString() + ")"),
+              new Text("Found value in map: $category")
             ] 
           ),
         ),
       )
     );
   }
-
-  // Tuple2 <double, String> praseText(String inputStr){
-  //   // Function to parse user input into <quantity> and <attribute>
-
-  //   double quantity = 0.0;
-  //   String attribute = "";
-
-  //   RegExp extractQuantity = RegExp(r'^[0-9]+');
-  //   RegExp extractAttribute = RegExp(r'[A-Za-z]+');
-
-  //   quantity = double.parse(extractQuantity.firstMatch(inputStr).group(0));
-  //   attribute = extractAttribute.firstMatch(inputStr).group(0);
-
-  //   return new Tuple2(quantity, attribute);
-  // }
 
   List praseText(String inputStr){
     // Function to parse user input into <quantity> and <attribute>
@@ -85,4 +73,25 @@ class UserTextInput extends State<TextInput>{
 
     return [quantity, attribute];
   }
+
+  List getUserConversionRequest(String inputStr){
+    // Takes in user input and returns the category in which to compare.
+    List output = [];
+    // For each category, check if the inputStr is a value:
+    convertFrom.forEach((categoryName, categoryValues) => (
+      // The key is a new map, so iterate over it as well
+      categoryValues.forEach((unitName, unitValue){
+        if (inputStr == unitName){
+          output = [unitName, unitValue];
+        }
+      }
+      )));
+      return output;   
+  }
+
+  generateRandomSize(inUnit, inUnitValue){
+    // Pick random unit from constants.convertTo and convert to it!
+
+  }
+
 }

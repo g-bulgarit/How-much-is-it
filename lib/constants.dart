@@ -1,17 +1,20 @@
 
-const conversion_set = {
-  // Energy - convert to watts
-  "watts" : 1,
-  "horsepower" : 5,
-  "mega watts" : 1000,
-  "giga watts" : 1000000,
+final convertFrom = {"energy"           : {"watts" : 1,
+                                           "horsepower" : 5,
+                                           "megawatts" : 1000,
+                                           "gigawatts" : 1000000},
+      
+                      "physical"        : {"milimeters" : 0.001,
+                                           "centimeters" : 0.01,
+                                           "kilometers" : 1,
+                                           "miles" : 1.6},
+      
+                      "fluids"          : {"mililiters" : 0.001,}
+                   };
 
-  // Physical size - convert to meters
-  "milimeters" : 0.001,
-  "centimeters" : 0.01,
-  "kilometers" : 1,
-  "miles" : 1.6,
 
-  // Fluids - convert to liters
-  "mililiters" : 0.001,
-};
+final convertTo = {"energy"          :{"hamsters on a wheel" : 0.015,
+                                        "AK47 recoil" : 124,
+                                        "mashing keys on a keyboard" : 40},
+                    "physical"       :{},
+                    "fluids"         :{}};
