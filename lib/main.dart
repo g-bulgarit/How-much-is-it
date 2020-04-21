@@ -104,9 +104,11 @@ class UserTextInput extends State<TextInput>{
     int randEntryLoc = rng.nextInt(maxSize);
     toUnit = convertTo[inCategory].keys.toList()[randEntryLoc].toString();
     conversionValue = convertTo[inCategory][toUnit].toDouble();
+    double multiplier = convertFrom[inCategory][inUnit].toDouble();
+
 
     // Do conversion:
-    calculatedValue = conversionValue * inUnitValue;
+    calculatedValue = inUnitValue * multiplier /  conversionValue;
 
 
     outStr = inUnitValue.toString() + " " 
