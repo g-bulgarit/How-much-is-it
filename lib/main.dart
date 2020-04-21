@@ -100,7 +100,7 @@ class UserTextInput extends State<TextInput>{
     String toUnit = "";
 
     // Get size of the convertTo map
-    int maxSize = convertTo.length;
+    int maxSize = convertTo[inCategory].length;
 
     // Pick random unit from constants.convertTo and convert to it!
     var rng = new Random();
