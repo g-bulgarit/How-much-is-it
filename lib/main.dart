@@ -43,10 +43,10 @@ class UserTextInput extends State<TextInput>{
 
                     double userUnitToConvert = result[0];
                     String selectedUnit = userConversions[0];
-                    double selectedValue = userConversions[1];
+                    double multiplier = userConversions[1];
                     String selectedCategory = userConversions[2];
 
-                    convertedResult = this.convertToRandomUnit(selectedCategory, selectedUnit, userUnitToConvert);
+                    convertedResult = this.convertToRandomUnit(selectedCategory, selectedUnit, userUnitToConvert, multiplier);
                   });
                   // Remove text from textbox
                   controller.text = "";
@@ -90,7 +90,7 @@ class UserTextInput extends State<TextInput>{
       return output;   
   }
 
-  String convertToRandomUnit(inCategory, inUnit, inUnitValue){
+  String convertToRandomUnit(inCategory, inUnit, inUnitValue, multiplier){
     String outStr = "";
     double calculatedValue = 0.0;
     double conversionValue = 0.0;
@@ -104,11 +104,10 @@ class UserTextInput extends State<TextInput>{
     int randEntryLoc = rng.nextInt(maxSize);
     toUnit = convertTo[inCategory].keys.toList()[randEntryLoc].toString();
     conversionValue = convertTo[inCategory][toUnit].toDouble();
-    double multiplier = convertFrom[inCategory][inUnit].toDouble();
 
 
     // Do conversion:
-    calculatedValue = inUnitValue * multiplier /  conversionValue;
+    calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue;
 
 
     outStr = inUnitValue.toString() + " " 
