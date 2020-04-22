@@ -56,7 +56,7 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                                           "":4
                                          },
 
-                    "length"           :{"widths of a pinky finger": 0.0127,
+                    "length"           :{"times the width of a pinky finger": 0.0127,
                                          "Boeing 747 jets, stacked cockpit to tail": 71,
                                          "times the length of a giraffe's tounge": 0.4826,
                                          "times the length of Chile": 4270000,

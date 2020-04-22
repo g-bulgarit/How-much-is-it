@@ -1,5 +1,6 @@
 name: how_much_is_it
-description: A new Flutter project.
+description: An app to finally determine "how much is ____".
+
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -71,3 +72,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Bebas
+      fonts:
+        - asset: assets/BebasKai.ttf

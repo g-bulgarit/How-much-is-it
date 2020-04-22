@@ -7,6 +7,7 @@ const Color backgroundColorMain = Color(0xFF5CDB95);
 // Foreground colors:
 const Color foregroundColorMain = Color(0xFF8EE4AF);
 const Color foregroundColorDark = Color(0xFF05386B);
+const Color foregroundAccent = Color(0xFF6feda8);
 // Text colors
 const Color textColorMain = Color(0xFFEDF5E1);
 const Color textColorHint = Color(0xFF379683);
