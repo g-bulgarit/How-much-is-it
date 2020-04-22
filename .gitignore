@@ -12,6 +12,7 @@
 # My Additions
 android/*
 ios/*
+assets/*
 
 # IntelliJ related
 *.iml
