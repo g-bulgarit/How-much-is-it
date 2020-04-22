@@ -94,7 +94,7 @@ class UserTextInput extends State<TextInput>{
   }
 
   String convertToRandomUnit(inCategory, inUnit, inUnitValue, multiplier){
-    String outStr = "";
+    String oStr = "";
     double calculatedValue = 0.0;
     double conversionValue = 0.0;
     String toUnit = "";
@@ -108,15 +108,16 @@ class UserTextInput extends State<TextInput>{
     toUnit = convertTo[inCategory].keys.toList()[randEntryLoc].toString();
     conversionValue = convertTo[inCategory][toUnit].toDouble();
 
-
     // Do conversion:
     calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue;
 
-    outStr = inUnitValue.toString() + " " 
-             + inUnit.toString() + " is " 
-             + calculatedValue.toString() + " " + toUnit;
+    // Use sprintf to format values:
+    oStr = sprintf("%g %s is %g %s", [inUnitValue,
+                                        inUnit.toString(),
+                                        calculatedValue,
+                                        toUnit.toString()]);
 
-    return outStr;
+    return oStr;
   }
 
 }
