@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sprintf/sprintf.dart';
+
 import 'dart:math';
 import 'constants.dart';
+
+import 'colors.dart';
 
 void main(){
   runApp(new MaterialApp(
@@ -20,20 +24,30 @@ class UserTextInput extends State<TextInput>{
   @override
   Widget build(BuildContext context){
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("How Much Is It?"),
-        backgroundColor: Colors.amber,
-      ),
+      backgroundColor: backgroundColorMain,
+      // appBar: new AppBar(
+      //   title: new Text("How Much Is It?"),
+      //   backgroundColor: Colors.amber,
+      // ),
       body: new Container(
         child: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new TextField(
+                style: TextStyle(
+                  color: textColorMain,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                ),
                 controller: controller,
                 textAlign: TextAlign.center,
                 decoration: new InputDecoration(
-                  hintText: "How much is...?"
+                  hintText: "How much is...?",
+                  hintStyle: TextStyle(
+                    color: textColorHint,
+                  ),
                 ),
                 onSubmitted: (String str){
                   setState(() {
@@ -55,7 +69,26 @@ class UserTextInput extends State<TextInput>{
                   controller.text = "";
                 },
               ),
-              new Text("$convertedResult"),
+
+
+              new Divider(
+                height: 20.0,
+                color: Color(0x00FFFFFF),
+              ),
+
+
+              new Text("$convertedResult",
+              textAlign: TextAlign.center,
+              textScaleFactor: 1,
+              style: TextStyle(
+                color: textColorMain,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.normal,
+                fontSize: 40,
+              ),),
+
+              new Image(image: AssetImage("assets/w4_2.PNG"),
+                  width: 200),
             ], 
           ),
         ),
@@ -65,7 +98,6 @@ class UserTextInput extends State<TextInput>{
 
   List praseText(String inputStr){
     // Function to parse user input into <quantity> and <attribute>
-
     double quantity = 0.0;
     String attribute = "";
 
