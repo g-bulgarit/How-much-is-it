@@ -20,17 +20,25 @@ class TextInput extends StatefulWidget {
 
 class UserTextInput extends State<TextInput>{
   final TextEditingController controller = new TextEditingController();
+
   String convertedResult = "";
+
   @override
   Widget build(BuildContext context){
     return new Scaffold(
       backgroundColor: backgroundColorMain,
       body: new Container(
-        padding: EdgeInsets.all(50),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(image: AssetImage("assets/app_bg.png")
+        //   ),
+        // ),
+        padding: EdgeInsets.only(top: 40,
+                                 bottom: 40,
+                                 right: 10,
+                                 left: 10),
         child: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Expanded(
                 flex: 2,
@@ -71,27 +79,41 @@ class UserTextInput extends State<TextInput>{
               ),
               ),
               
-              new Divider(
-                height: 20.0,
-                color: Color(0x00FFFFFF),
-              ),
+              // new Divider(
+              //   height: 20.0,
+              //   color: Color(0x00FFFFFF),
+              // ),
 
               new Expanded(
-                flex: 4,
-                child: new Text("$convertedResult",
-                  textAlign: TextAlign.center,
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    color: textColorMain,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 40,
+                flex: 7,
+                child: new Container(
+                  alignment: Alignment.center,
+                  
+                  decoration: BoxDecoration(
+                    shape:  BoxShape.circle,
+                    color: foregroundColorDark,
+                  ),
+                  padding: EdgeInsets.all(10.0),
+                  margin: EdgeInsets.all(10.0),
+
+                  child: new Text(
+                    "$convertedResult",
+                    textAlign: TextAlign.center,
+                    textScaleFactor: 1,
+                    style: TextStyle(
+                      color: textColorMain,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                   ),),
+                )
               ),
-              new Expanded(
-                flex: 4,
-                child: new Image(image: AssetImage("assets/w4_2.PNG")),
-                ),
+              // new Expanded(
+              //   flex: 4,
+                
+              //   child: new Image(image: AssetImage("assets/length_planes.png"),
+              //   width: 200,),
+              //   ),
             ], 
           ),
         ),
