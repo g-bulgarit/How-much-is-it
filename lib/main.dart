@@ -25,16 +25,16 @@ class UserTextInput extends State<TextInput>{
   Widget build(BuildContext context){
     return new Scaffold(
       backgroundColor: backgroundColorMain,
-      // appBar: new AppBar(
-      //   title: new Text("How Much Is It?"),
-      //   backgroundColor: Colors.amber,
-      // ),
       body: new Container(
+        padding: EdgeInsets.all(50),
         child: new Center(
           child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new TextField(
+              new Expanded(
+                flex: 2,
+                child:new TextField(
                 style: TextStyle(
                   color: textColorMain,
                   fontFamily: 'Roboto',
@@ -69,26 +69,29 @@ class UserTextInput extends State<TextInput>{
                   controller.text = "";
                 },
               ),
-
-
+              ),
+              
               new Divider(
                 height: 20.0,
                 color: Color(0x00FFFFFF),
               ),
 
-
-              new Text("$convertedResult",
-              textAlign: TextAlign.center,
-              textScaleFactor: 1,
-              style: TextStyle(
-                color: textColorMain,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.normal,
-                fontSize: 40,
-              ),),
-
-              new Image(image: AssetImage("assets/w4_2.PNG"),
-                  width: 200),
+              new Expanded(
+                flex: 4,
+                child: new Text("$convertedResult",
+                  textAlign: TextAlign.center,
+                  textScaleFactor: 1,
+                  style: TextStyle(
+                    color: textColorMain,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal,
+                    fontSize: 40,
+                  ),),
+              ),
+              new Expanded(
+                flex: 4,
+                child: new Image(image: AssetImage("assets/w4_2.PNG")),
+                ),
             ], 
           ),
         ),
@@ -145,9 +148,9 @@ class UserTextInput extends State<TextInput>{
 
     // Use sprintf to format values:
     oStr = sprintf("%g %s is %g %s", [inUnitValue,
-                                        inUnit.toString(),
-                                        calculatedValue,
-                                        toUnit.toString()]);
+                                      inUnit.toString(),
+                                      calculatedValue,
+                                      toUnit.toString()]);
 
     return oStr;
   }
