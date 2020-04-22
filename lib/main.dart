@@ -25,6 +25,10 @@ class UserTextInput extends State<TextInput>{
 
   @override
   Widget build(BuildContext context){
+
+    // Get 80% of size of screen in the width axis.
+    double cWidth = MediaQuery.of(context).size.width*0.9;
+
     return new Scaffold(
       backgroundColor: backgroundColorMain,
       body: new Container(
@@ -34,8 +38,8 @@ class UserTextInput extends State<TextInput>{
         // ),
         padding: EdgeInsets.only(top: 40,
                                  bottom: 40,
-                                 right: 10,
-                                 left: 10),
+                                 right: 5,
+                                 left: 5),
         child: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -45,7 +49,7 @@ class UserTextInput extends State<TextInput>{
                 child:new TextField(
                 style: TextStyle(
                   color: textColorMain,
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Bebas',
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
                 ),
@@ -53,9 +57,32 @@ class UserTextInput extends State<TextInput>{
                 textAlign: TextAlign.center,
                 decoration: new InputDecoration(
                   hintText: "How much is...?",
+
+                  // Set borders around the text input:
+                  // On load:
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                    borderRadius: BorderRadius.all(Radius.circular(40))
+                  ),
+
+                  // On focus:
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                    borderRadius: BorderRadius.all(Radius.circular(40))
+                  ),
+
+                  // Set hint text:
                   hintStyle: TextStyle(
                     color: textColorHint,
                   ),
+
+                  // Add suffix icon:
+                  suffixIcon: Icon(Icons.search, color: textColorMain,),
+
+                  // Fill color:
+                  filled: true,
+                  fillColor: foregroundAccent,
+
                 ),
                 onSubmitted: (String str){
                   setState(() {
@@ -78,42 +105,33 @@ class UserTextInput extends State<TextInput>{
                 },
               ),
               ),
-              
-              // new Divider(
-              //   height: 20.0,
-              //   color: Color(0x00FFFFFF),
-              // ),
 
               new Expanded(
                 flex: 7,
                 child: new Container(
+                  width: cWidth,
                   alignment: Alignment.center,
                   
                   decoration: BoxDecoration(
                     shape:  BoxShape.circle,
                     color: foregroundColorDark,
                   ),
+
                   padding: EdgeInsets.all(10.0),
                   margin: EdgeInsets.all(10.0),
-
+                  
                   child: new Text(
                     "$convertedResult",
                     textAlign: TextAlign.center,
                     textScaleFactor: 1,
                     style: TextStyle(
                       color: textColorMain,
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Bebas',
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 30,
                   ),),
                 )
               ),
-              // new Expanded(
-              //   flex: 4,
-                
-              //   child: new Image(image: AssetImage("assets/length_planes.png"),
-              //   width: 200,),
-              //   ),
             ], 
           ),
         ),
@@ -166,7 +184,7 @@ class UserTextInput extends State<TextInput>{
     conversionValue = convertTo[inCategory][toUnit].toDouble();
 
     // Do conversion:
-    calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue;
+    calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue.toDouble();
 
     // Use sprintf to format values:
     oStr = sprintf("%g %s is %g %s", [inUnitValue,
