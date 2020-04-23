@@ -32,10 +32,16 @@ class UserTextInput extends State<TextInput>{
     return new Scaffold(
       backgroundColor: backgroundColorMain,
       body: new Container(
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(image: AssetImage("assets/app_bg.png")
-        //   ),
-        // ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [backgroundColorMain, textColorHint],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            
+            ),
+          ),
+          
+        
         padding: EdgeInsets.only(top: 40,
                                  bottom: 40,
                                  right: 5,
@@ -129,7 +135,8 @@ class UserTextInput extends State<TextInput>{
                       fontFamily: 'Bebas',
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
-                  ),),
+                    ),
+                  ),
                 )
               ),
             ], 
@@ -191,7 +198,6 @@ class UserTextInput extends State<TextInput>{
                                       inUnit.toString(),
                                       calculatedValue,
                                       toUnit.toString()]);
-
     return oStr;
   }
 
