@@ -17,12 +17,10 @@ class TextInput extends StatefulWidget {
   UserTextInput createState() => new UserTextInput();
 }
 
-
 class UserTextInput extends State<TextInput>{
 
   final TextEditingController controller = new TextEditingController();
   String convertedResult = "";
-
   // String subtext = "Sample Text";
 
   // ----------------------------------
@@ -36,8 +34,9 @@ class UserTextInput extends State<TextInput>{
 
   @override
   Widget build(BuildContext context){
+    // Override the build method when we load this state
 
-    // Get 80% of size of screen in the width axis.
+    // Get 90% of size of screen in the width axis.
     double cWidth = MediaQuery.of(context).size.width*0.9;
 
     return new Scaffold(
@@ -48,7 +47,6 @@ class UserTextInput extends State<TextInput>{
             colors: [backgroundColorMain, textColorHint],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            
             ),
           ),
           
@@ -185,7 +183,7 @@ class UserTextInput extends State<TextInput>{
     double quantity = 0.0;
     String attribute = "";
 
-    RegExp extractQuantity = RegExp(r'^[0-9]+');
+    RegExp extractQuantity = RegExp(r'^[0-9.]+');
     RegExp extractAttribute = RegExp(r'\s+([A-Za-z\s]+)'); 
 
     quantity = double.parse(extractQuantity.firstMatch(inputStr).group(0));
@@ -209,11 +207,19 @@ class UserTextInput extends State<TextInput>{
       return output;   
   }
 
-  String convertToRandomUnit(inCategory, inUnit, inUnitValue, multiplier){
-    String oStr = "";
+  String convertToRandomUnit(inCategory, inUnit, inUnitValue, inMultiplier){
+    // Function to take in a user input, convert it and return an output string.
+    //  Params:
+    //  - inCategory: category of the user input - choose answer from this category as well.
+    //  - inUnit: the user's actual unit.
+    //  - inUnitValue: the user's numeric input.
+    //  - inMultiplier: scale multiplier.
+
+    String outputStr = "";
+
+    String toUnit = "";
     double calculatedValue = 0.0;
     double conversionValue = 0.0;
-    String toUnit = "";
 
     // Get size of the convertTo map
     int maxSize = convertTo[inCategory].length;
@@ -225,17 +231,17 @@ class UserTextInput extends State<TextInput>{
     conversionValue = convertTo[inCategory][toUnit].toDouble();
 
     // Do conversion:
-    calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue.toDouble();
+    calculatedValue = inUnitValue * inMultiplier.toDouble() /  conversionValue.toDouble();
 
     // Consider classification by size here - if the number is very small or very large,
     // maybe a different format would suit it better, like % of or 3*10^24 instead of 3e24
 
     // Use sprintf to format values:
-    oStr = sprintf("%g %s is %g %s", [inUnitValue,
-                                      inUnit.toString(),
-                                      calculatedValue,
-                                      toUnit.toString()]);
-    return oStr;
+    outputStr = sprintf("%g %s is %g %s", [inUnitValue,
+                                           inUnit.toString(),
+                                           calculatedValue,
+                                           toUnit.toString()]);
+    return outputStr;
   }
 
 }
