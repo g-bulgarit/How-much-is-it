@@ -156,10 +156,13 @@ class UserTextInput extends State<TextInput>{
     String attribute = "";
 
     RegExp extractQuantity = RegExp(r'^[0-9]+');
-    RegExp extractAttribute = RegExp(r'[A-Za-z]+');
+
+    // Todo: Capture whole user sentence, not just the first word!
+    RegExp extractAttribute = RegExp(r'\s+([A-Za-z\s]+)'); 
+    // RegExp extractAttribute = RegExp(r'[A-Za-z]+'); //
 
     quantity = double.parse(extractQuantity.firstMatch(inputStr).group(0));
-    attribute = extractAttribute.firstMatch(inputStr).group(0);
+    attribute = extractAttribute.firstMatch(inputStr).group(1);
 
     return [quantity, attribute];
   }
