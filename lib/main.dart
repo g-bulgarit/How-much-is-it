@@ -19,18 +19,20 @@ class TextInput extends StatefulWidget {
 
 
 class UserTextInput extends State<TextInput>{
+
   final TextEditingController controller = new TextEditingController();
-
   String convertedResult = "";
-  String subtext = "";
 
-  // ----------
+  // String subtext = "Sample Text";
 
+  // ----------------------------------
+  //          State Variables         |
+  // ---------------------------------
   double amtToConvert = 0.0;
   String unitFrom = "";
   double unitMultiplier = 0.0;
   String categoryFrom = "";
-
+  // --------------------------------- 
 
   @override
   Widget build(BuildContext context){
@@ -63,7 +65,7 @@ class UserTextInput extends State<TextInput>{
                   color: textColorMain,
                   fontFamily: 'Bebas',
                   fontWeight: FontWeight.bold,
-                  fontSize: 40,
+                  fontSize: 35,
                 ),
                 controller: controller,
                 textAlign: TextAlign.center,
@@ -89,7 +91,10 @@ class UserTextInput extends State<TextInput>{
                   ),
 
                   // Add suffix icon:
-                  suffixIcon: Icon(Icons.search, color: textColorMain,),
+                  suffixIcon: Icon(
+                    Icons.search, color: textColorMain,
+                    size: 30,
+                    ),
 
                   // Fill color:
                   filled: true,
