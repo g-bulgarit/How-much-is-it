@@ -2,7 +2,9 @@
 
 ___________________
 
-Answers you didn't want for questions you wish you never asked.
+
+<div align="center"><b>Answers you didn't want for questions you wish you never asked.</b></div>
+
 
 ______________
 Made with **Flutter**,\
