@@ -22,6 +22,15 @@ class UserTextInput extends State<TextInput>{
   final TextEditingController controller = new TextEditingController();
 
   String convertedResult = "";
+  String subtext = "";
+
+  // ----------
+
+  double amtToConvert = 0.0;
+  String unitFrom = "";
+  double unitMultiplier = 0.0;
+  String categoryFrom = "";
+
 
   @override
   Widget build(BuildContext context){
@@ -95,13 +104,13 @@ class UserTextInput extends State<TextInput>{
                     List userConversions = this.getUserConversionRequest(result[1]);
 
                     // Retain some info in variables
-                    double userUnitToConvert = result[0];
-                    String selectedUnit = userConversions[0];
-                    double multiplier = userConversions[1];
-                    String selectedCategory = userConversions[2];
+                    amtToConvert = result[0];
+                    unitFrom = userConversions[0];
+                    unitMultiplier = userConversions[1];
+                    categoryFrom = userConversions[2];
 
                     // Do the conversion and store it in the class' variable.
-                    convertedResult = this.convertToRandomUnit(selectedCategory, selectedUnit, userUnitToConvert, multiplier);
+                    convertedResult = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
                   });
                   // Remove text from textbox
                   controller.text = "";
@@ -143,6 +152,18 @@ class UserTextInput extends State<TextInput>{
                   ),
                 )
               ),
+
+              new FlatButton(
+                child: new Icon(
+                  Icons.refresh,
+                  color: Colors.white),
+                onPressed: (){
+                  setState(() {
+                    // Re-do calculation
+                    convertedResult = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
+                  });
+                },
+              ),
             ], 
           ),
         ),
@@ -156,10 +177,7 @@ class UserTextInput extends State<TextInput>{
     String attribute = "";
 
     RegExp extractQuantity = RegExp(r'^[0-9]+');
-
-    // Todo: Capture whole user sentence, not just the first word!
     RegExp extractAttribute = RegExp(r'\s+([A-Za-z\s]+)'); 
-    // RegExp extractAttribute = RegExp(r'[A-Za-z]+'); //
 
     quantity = double.parse(extractQuantity.firstMatch(inputStr).group(0));
     attribute = extractAttribute.firstMatch(inputStr).group(1);
@@ -199,6 +217,9 @@ class UserTextInput extends State<TextInput>{
 
     // Do conversion:
     calculatedValue = inUnitValue * multiplier.toDouble() /  conversionValue.toDouble();
+
+    // Consider classification by size here - if the number is very small or very large,
+    // maybe a different format would suit it better, like % of or 3*10^24 instead of 3e24
 
     // Use sprintf to format values:
     oStr = sprintf("%g %s is %g %s", [inUnitValue,
