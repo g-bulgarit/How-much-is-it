@@ -41,18 +41,15 @@ class UserTextInput extends State<TextInput>{
             ),
           ),
           
-        
         padding: EdgeInsets.only(top: 40,
                                  bottom: 40,
-                                 right: 5,
-                                 left: 5),
+                                 right: 8,
+                                 left: 8),
         child: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new Expanded(
-                flex: 2,
-                child:new TextField(
+                new TextField(
                 style: TextStyle(
                   color: textColorMain,
                   fontFamily: 'Bebas',
@@ -67,7 +64,7 @@ class UserTextInput extends State<TextInput>{
                   // Set borders around the text input:
                   // On load:
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.transparent),
+                    borderSide: BorderSide(color: Colors.white),
                     borderRadius: BorderRadius.all(Radius.circular(40))
                   ),
 
@@ -110,7 +107,6 @@ class UserTextInput extends State<TextInput>{
                   controller.text = "";
                 },
               ),
-              ),
 
               new Expanded(
                 flex: 7,
@@ -120,7 +116,15 @@ class UserTextInput extends State<TextInput>{
                   
                   decoration: BoxDecoration(
                     shape:  BoxShape.circle,
-                    color: foregroundColorDark,
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2
+                    ),
+                    // color: foregroundColorDark,
+                    gradient: RadialGradient(
+                      colors: [foregroundColorInner, foregroundColorDark],
+                      
+                    )
                   ),
 
                   padding: EdgeInsets.all(10.0),
