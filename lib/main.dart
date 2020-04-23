@@ -152,11 +152,14 @@ class UserTextInput extends State<TextInput>{
                   ),
                 )
               ),
-
-              new FlatButton(
-                child: new Icon(
+              new Container(
+                width: 50,
+                alignment: Alignment.center,
+                child: new IconButton(
+                icon: new Icon(
                   Icons.refresh,
-                  color: Colors.white),
+                  color: Colors.white,
+                  size: (35)),
                 onPressed: (){
                   setState(() {
                     // Re-do calculation
@@ -164,6 +167,7 @@ class UserTextInput extends State<TextInput>{
                   });
                 },
               ),
+              )
             ], 
           ),
         ),
