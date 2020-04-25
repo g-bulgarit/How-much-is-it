@@ -11,6 +11,8 @@ final convertFrom = {"power"           : { "watts" : 1,
                      "energy"          : {"joule" : 1,
                                           "electron volt" : 1,
                                           "kcal" : 4200,
+                                          "kilo calories" : 4200,
+                                          "calories" : 4200,
                                           "watt hours": 0.0002777778,
                                           "watt-hours": 0.0002777778,
                                           "btu": 0.0009478171,
@@ -79,11 +81,13 @@ final convertFrom = {"power"           : { "watts" : 1,
 
 final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                                           "keystrokes on a keyboard (per second)" : 0.0015,
-                                          "AA batteries (per hour)": 3.9
+                                          "AA batteries (per hour)": 3.9,
+                                          "washing machines":500,
                                          },
 
                     "energy"           : {"times the recoil from an AK47 shot" : 2108,
-                                          "":4
+                                          "the energy consumed in one hour of sleep": 376560,
+                                          "times the energy consumption of New York City per hour": 39600000000000,
                                          },
 
                     "length"           :{"times the width of a pinky finger": 0.0127,
@@ -123,7 +127,7 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                                         },
 
                     "time"             :{"times the longest recorded flight of a chicken" : 13,
-                                         "placeholder":1},
+                                        },
                     "temperature"      :{},
                   };
 
@@ -181,5 +185,14 @@ final subtextList = [
   "what would Newton say?",
   "whatever floats your boat",
   "whatever rustles your jimmies",
+  "When life gives you lemons, make life take the lemons back",
+  "Free admission on your next visit to the Dojo",
+  "Ceci ñ'est pas une calcul",
+  "save this for trivia night!",
+  "this isn't easy",
+  "this is harder than it looks",
+  "I wouldn't bet on it",
+  "next time, measure with bananas",
+  "just smile and wave, boys",
 ];
 

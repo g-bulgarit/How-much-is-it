@@ -48,13 +48,13 @@ class UserTextInput extends State<TextInput>{
       body: new Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [backgroundColorMain, textColorHint],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            colors: [gradientBottom, gradientCenter, gradientTop],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
             ),
           ),
-        padding: EdgeInsets.only(top: 40,
-                                 bottom: 40,
+        padding: EdgeInsets.only(top: 30,
+                                 bottom: 30,
                                  right: 15,
                                  left: 15),
         child: new Center(
@@ -84,7 +84,7 @@ class UserTextInput extends State<TextInput>{
 
                     // On focus:
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: foregroundColorInner, width: 2),
+                      borderSide: BorderSide(color: textColorMain, width: 2),
                       borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
 
@@ -94,7 +94,7 @@ class UserTextInput extends State<TextInput>{
                     ),
 
                     // Fill color:
-                    filled: true,
+                    filled: false,
                     fillColor: foregroundAccent,
 
                   ),
@@ -121,23 +121,22 @@ class UserTextInput extends State<TextInput>{
               ),
                 ),
 
-              new Expanded(
-                flex: 7,
-                child: new Container(
+                new Container(
                   width: cWidth,
-                  height: cWidth,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    shape:  BoxShape.circle,
+                    shape:  BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(50),
                     border: Border.all(
                       color: Colors.white,
                       width: 2
                     ),
-                    // color: foregroundColorDark,
-                    gradient: RadialGradient(
-                      colors: [foregroundColorInner, foregroundColorDark],
+                    color: Colors.transparent,
+                    // gradient: RadialGradient(
+                    //   colors: [foregroundColorInner, foregroundColorDark],
+                    //   stops: [0.1,0.85],
                       
-                    )
+                    // )
                   ),
 
                   padding: EdgeInsets.all(20.0),
@@ -154,8 +153,7 @@ class UserTextInput extends State<TextInput>{
                       fontSize: 30,
                     ),
                   ),
-                )
-              ),
+                ),
 
               new Container(
                 height: 150,
@@ -176,7 +174,7 @@ class UserTextInput extends State<TextInput>{
               
               new Container(
                 width: 50,
-                alignment: Alignment.center,
+                alignment: Alignment.bottomCenter,
                 child: new IconButton(
                 icon: new Icon(
                   Icons.refresh,
