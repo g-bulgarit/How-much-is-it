@@ -21,7 +21,7 @@ class UserTextInput extends State<TextInput>{
 
   final TextEditingController controller = new TextEditingController();
   String convertedResult = "";
-  // String subtext = "Sample Text";
+  String subtext = "";
 
   // ----------------------------------
   //          State Variables         |
@@ -40,6 +40,8 @@ class UserTextInput extends State<TextInput>{
     double cWidth = MediaQuery.of(context).size.width*0.9;
 
     return new Scaffold(
+      // Make sure that the keyboard does not squeeze the app up
+      resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColorMain,
       body: new Container(
         decoration: BoxDecoration(
@@ -49,7 +51,6 @@ class UserTextInput extends State<TextInput>{
             end: Alignment.bottomCenter,
             ),
           ),
-          
         padding: EdgeInsets.only(top: 40,
                                  bottom: 40,
                                  right: 8,
@@ -58,72 +59,77 @@ class UserTextInput extends State<TextInput>{
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-                new TextField(
-                style: TextStyle(
-                  color: textColorMain,
-                  fontFamily: 'Bebas',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
-                ),
-                controller: controller,
-                textAlign: TextAlign.center,
-                decoration: new InputDecoration(
-                  hintText: "How much is...?",
-
-                  // Set borders around the text input:
-                  // On load:
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.all(Radius.circular(40))
+                Container(
+                  height: 100,
+                  child: new TextField(
+                  style: TextStyle(
+                    color: textColorMain,
+                    fontFamily: 'Bebas',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
                   ),
+                  controller: controller,
+                  textAlign: TextAlign.center,
+                  decoration: new InputDecoration(
+                    hintText: "How much is...?",
 
-                  // On focus:
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.transparent),
-                    borderRadius: BorderRadius.all(Radius.circular(40))
-                  ),
-
-                  // Set hint text:
-                  hintStyle: TextStyle(
-                    color: textColorHint,
-                  ),
-
-                  // Add suffix icon:
-                  suffixIcon: Icon(
-                    Icons.search, color: textColorMain,
-                    size: 30,
+                    // Set borders around the text input:
+                    // On load:
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
 
-                  // Fill color:
-                  filled: true,
-                  fillColor: foregroundAccent,
+                    // On focus:
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))
+                    ),
 
-                ),
-                onSubmitted: (String str){
-                  setState(() {
-                    // On submit, calculate stuff and call the build method again.
-                    // Parse user input with regex
-                    List result = this.praseText(str);
-                    List userConversions = this.getUserConversionRequest(result[1]);
+                    // Set hint text:
+                    hintStyle: TextStyle(
+                      color: textColorHint,
+                    ),
 
-                    // Retain some info in variables
-                    amtToConvert = result[0];
-                    unitFrom = userConversions[0];
-                    unitMultiplier = userConversions[1];
-                    categoryFrom = userConversions[2];
+                    // Add suffix icon:
+                    suffixIcon: Icon(
+                      Icons.search, color: textColorMain,
+                      size: 30,
+                      ),
 
-                    // Do the conversion and store it in the class' variable.
-                    convertedResult = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
-                  });
-                  // Remove text from textbox
-                  controller.text = "";
-                },
+                    // Fill color:
+                    filled: true,
+                    fillColor: foregroundAccent,
+
+                  ),
+                  onSubmitted: (String str){
+                    setState(() {
+                      // On submit, calculate stuff and call the build method again.
+                      // Parse user input with regex
+                      List result = this.praseText(str);
+                      List userConversions = this.getUserConversionRequest(result[1]);
+
+                      // Retain some info in variables
+                      amtToConvert = result[0];
+                      unitFrom = userConversions[0];
+                      unitMultiplier = userConversions[1];
+                      categoryFrom = userConversions[2];
+
+                      // Do the conversion and store it in the class' variable.
+                      convertedResult = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
+                      subtext = getRandomSubtext();
+                    });
+                    // Remove text from textbox
+                    controller.text = "";
+                  },
               ),
+                ),
 
               new Expanded(
                 flex: 7,
                 child: new Container(
                   width: cWidth,
+                  height: cWidth,
                   alignment: Alignment.center,
                   
                   decoration: BoxDecoration(
@@ -155,6 +161,23 @@ class UserTextInput extends State<TextInput>{
                   ),
                 )
               ),
+
+              new Container(
+                height: 150,
+                child:Center(
+                  child: Text(
+                    "$subtext",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: textColorMain,
+                        fontFamily: 'Bebas',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
+                    ),
+                ),
+              ),
+              
               new Container(
                 width: 50,
                 alignment: Alignment.center,
@@ -167,10 +190,11 @@ class UserTextInput extends State<TextInput>{
                   setState(() {
                     // Re-do calculation
                     convertedResult = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
+                    subtext = getRandomSubtext();
                   });
                 },
               ),
-              )
+              ),
             ], 
           ),
         ),
@@ -187,7 +211,7 @@ class UserTextInput extends State<TextInput>{
     RegExp extractAttribute = RegExp(r'\s+([A-Za-z\s]+)'); 
 
     quantity = double.parse(extractQuantity.firstMatch(inputStr).group(0));
-    attribute = extractAttribute.firstMatch(inputStr).group(1);
+    attribute = extractAttribute.firstMatch(inputStr).group(1).toLowerCase();
 
     return [quantity, attribute];
   }
@@ -242,6 +266,16 @@ class UserTextInput extends State<TextInput>{
                                            calculatedValue,
                                            toUnit.toString()]);
     return outputStr;
+  }
+
+
+  String getRandomSubtext(){
+    // Returns a random subtext string from the list in constants.dart
+    var rng = new Random();
+    int sizeofList = subtextList.length;
+    int randEntryLoc = rng.nextInt(sizeofList);
+
+    return subtextList[randEntryLoc];
   }
 
 }
