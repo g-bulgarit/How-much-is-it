@@ -61,8 +61,6 @@ final convertFrom = {"power"           : { "watts" : 1,
                                           "pounds per square inch":0.000145038,
                                           },
 
-                     "electricity"     : {"a":2},
-
                      "time"            : {"seconds" : 1,
                                           "minutes": 60,
                                           "hours" : 3600,
@@ -121,10 +119,26 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                     "pressure"         :{"a":2,
                                         },
 
-                    "electricity"      :{"a":2,
-                                        },
-
                     "time"             :{"times the longest recorded flight of a chicken" : 13,
                                          "placeholder":1},
                     "temperature"      :{},
                   };
+
+final subtextList = [
+  "up to a constant",
+  "...probably",
+  "i wouldn't know",
+  "but you should consult a professional",
+  "don't try this at home",
+  "...why?",
+  "next time, use incognito for this",
+  "who hurt you?",
+  "did you really need to check?",
+  "or, at least, that's my honest opinion",
+  "go share the knowledge!",
+  "every 5-yr old knows this already",
+  "up to 16-bit float precision",
+  "shouldn't your mom teach you this?",
+  "where I come from, this is 3rd grade stuff"
+];
+
