@@ -1,3 +1,6 @@
+// This file holds all things constant to be used in the code.
+// I take no responsibilty for shitty conversions, in fact,
+// I blame the reader.
 
 final convertFrom = {"power"           : { "watts" : 1,
                                            "horsepower" : 5,
@@ -142,7 +145,7 @@ final subtextList = [
   "where I come from, this is 3rd grade stuff",
   "clearly",
   "easy to see",
-  "one and one makes two, two and one make three",
+  "one and one make two, two and one make three",
   "that's one you don't hear every day",
   "you learn something new every day",
   "but you'll forget this in a minute",
@@ -158,6 +161,25 @@ final subtextList = [
   "the FBI would like to know your location",
   "you shouldn't be doing these conversions",
   "I am somewhat of a genius myself",
-  "01110000 01110010 01101111 01100010 01100001 01100010 01101100 01111001"
+  "01110000 01110010 01101111 01100010 01100001 01100010 01101100 01111001",
+  "tehc",
+  "the cake is a lie",
+  "approximated with Taylor",
+  "put a low pass filter on it",
+  "in hexadecimal, that is",
+  "try using a bigger bolt to secure that",
+  "cool guys dont look at calculations",
+  "nerd",
+  "that's what a geek would look for",
+  "calculated",
+  "Hell yeah, science!",
+  "I shit you not",
+  "liter-ally",
+  "<mic drop>",
+  "but I'm no engineer",
+  "now put the gun down",
+  "what would Newton say?",
+  "whatever floats your boat",
+  "whatever rustles your jimmies",
 ];
 
