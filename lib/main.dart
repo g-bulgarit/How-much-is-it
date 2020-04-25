@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
 
@@ -53,8 +55,8 @@ class UserTextInput extends State<TextInput>{
           ),
         padding: EdgeInsets.only(top: 40,
                                  bottom: 40,
-                                 right: 8,
-                                 left: 8),
+                                 right: 15,
+                                 left: 15),
         child: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -164,7 +166,8 @@ class UserTextInput extends State<TextInput>{
                     style: TextStyle(
                       color: textColorMain,
                         fontFamily: 'Bebas',
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.normal,
+                        fontStyle: FontStyle.italic,
                         fontSize: 30,
                       ),
                     ),
