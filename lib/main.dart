@@ -76,13 +76,13 @@ class UserTextInput extends State<TextInput>{
                     // Set borders around the text input:
                     // On load:
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: textColorMain, width: 2),
                       borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
 
                     // On focus:
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
+                      borderSide: BorderSide(color: foregroundColorInner, width: 2),
                       borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
 
@@ -90,12 +90,6 @@ class UserTextInput extends State<TextInput>{
                     hintStyle: TextStyle(
                       color: textColorHint,
                     ),
-
-                    // Add suffix icon:
-                    suffixIcon: Icon(
-                      Icons.search, color: textColorMain,
-                      size: 30,
-                      ),
 
                     // Fill color:
                     filled: true,
@@ -131,7 +125,6 @@ class UserTextInput extends State<TextInput>{
                   width: cWidth,
                   height: cWidth,
                   alignment: Alignment.center,
-                  
                   decoration: BoxDecoration(
                     shape:  BoxShape.circle,
                     border: Border.all(
@@ -145,8 +138,8 @@ class UserTextInput extends State<TextInput>{
                     )
                   ),
 
-                  padding: EdgeInsets.all(10.0),
-                  margin: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(20.0),
+                  margin: EdgeInsets.all(20.0),
                   
                   child: new Text(
                     "$convertedResult",
