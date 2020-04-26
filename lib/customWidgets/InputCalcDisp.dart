@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:how_much_is_it/constants.dart';
+import 'package:how_much_is_it/colors.dart';
 import 'dart:math';
 import 'package:sprintf/sprintf.dart';
 
@@ -26,6 +27,9 @@ class _InputCalcDispState extends State<InputCalcDisp> {
   double unitMultiplier = 0.0;
   String unitFrom = "";
   String categoryFrom = "";
+
+  final TextEditingController textController = new TextEditingController();
+
 
   // ------------------ Functions -----------
 
@@ -127,42 +131,78 @@ class _InputCalcDispState extends State<InputCalcDisp> {
       children: <Widget>[
         Container(
           child: TextField(
+            controller: textController,
             textAlign: TextAlign.center,
             textAlignVertical: TextAlignVertical.center,
             style: Theme.of(context).textTheme.title,
             decoration: InputDecoration(
               hintText: "How much is...?",
               hintStyle: Theme.of(context).textTheme.title,
+              enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: textColorMain, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(40))
+              ),
+
+            // On focus:
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: textColorMain, width: 2),
+              borderRadius: BorderRadius.all(Radius.circular(40))
+            ),
             ),
           onSubmitted: (String str){
             setState(() {
               doCalculations(str);
             });
+          textController.text = "";
           },
           ),
         ),
 
+        SizedBox(height: 50,),
+
         Container(
-          child: Text(
-            "$userText",
+        padding: EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(
+             color: userText != "" ? Colors.white : Colors.transparent,
+             width: 2,
+          )
+        ),
+        child: Text(
+          "$userText",
+          style: Theme.of(context).textTheme.body1,
+          textAlign: TextAlign.center,
+        ),
+          ),
+
+        SizedBox(height: 50,),
+
+
+        Center(
+          child: Container(
+            child: Text(
+              "$userSubtext",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.body1,
+            ),
           ),
         ),
 
-        Container(
-          child: Text(
-            "$userSubtext",
-          ),
-        ),
+        SizedBox(height: 50,),
 
         Container(
           child: IconButton(
-            icon: Icon(Icons.refresh), 
-            onPressed: (){
+            icon: Icon(Icons.refresh, size: 50,),
+            color: userText != "" ? Colors.white : Colors.transparent,
+            onPressed: userText == "" ? (){}
+              :(){
               setState(() {
               userText = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
               userSubtext = getRandomSubtext();
-              });
-            }),
+              });}
+          ),
         )
 
       ],

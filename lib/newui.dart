@@ -10,7 +10,8 @@ void main(){
       fontFamily: 'Bebas',
       textTheme: TextTheme(
         title: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold, color: textColorMain),
-        body1: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: textColorMain),
+        body1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: textColorMain),
+        body2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: textColorMain),
       ),
     ),
     home: new HomePage()));
@@ -33,7 +34,12 @@ class AppHomePage extends State<HomePage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: 40.0,
+          horizontal: 18.0,
+        ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [gradientBottom, gradientCenter, gradientTop],
@@ -41,23 +47,24 @@ class AppHomePage extends State<HomePage>{
             end: Alignment.topCenter,
             ),
           ),
-        child: ListView(
+        child: Column(
           children: <Widget>[
             InputCalcDisp(
               userText: "",
               userSubtext: "",
             ),
+            Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.info_outline), 
-                  onPressed: (){
-                    dialog.widgetHelpDialog(context);
-                  }
-                  ),
-              ],
-            ),
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.info_outline, color: Colors.white, size: 40,), 
+                onPressed: (){
+                  dialog.widgetHelpDialog(context);
+                }
+                ),
+            ],
+              ),
           ],
         ),
       ),
