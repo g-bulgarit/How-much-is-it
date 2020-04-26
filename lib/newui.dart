@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 import 'customWidgets/InputCalcDisp.dart';
+import 'customWidgets/InfoDialog.dart';
 
 void main(){
   runApp(new MaterialApp(
@@ -21,19 +22,16 @@ class AppHomePage extends State<HomePage>{
 
   final TextEditingController textController = new TextEditingController();
 
-
-  Widget refreshButton = new Center(
-    child: Container(
-      child: IconButton(icon: Icon(Icons.refresh), onPressed: null),
-    ),
-  );
-
-
   Widget infoButton = new Container(
     child: Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        IconButton(icon: Icon(Icons.info_outline), onPressed: null)
+        IconButton(
+          icon: Icon(Icons.info_outline), 
+          onPressed: (){
+            // return InfoDialog();
+          }
+          ),
       ],
     ),
   );
@@ -51,8 +49,7 @@ class AppHomePage extends State<HomePage>{
             userText: "",
             userSubtext: "",
           ),
-          refreshButton,
-          infoButton
+          infoButton,
         ],
       ),
     );
