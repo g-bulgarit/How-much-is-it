@@ -127,8 +127,12 @@ class _InputCalcDispState extends State<InputCalcDisp> {
       children: <Widget>[
         Container(
           child: TextField(
+            textAlign: TextAlign.center,
+            textAlignVertical: TextAlignVertical.center,
+            style: Theme.of(context).textTheme.title,
             decoration: InputDecoration(
-              hintText: "How much is...?"
+              hintText: "How much is...?",
+              hintStyle: Theme.of(context).textTheme.title,
             ),
           onSubmitted: (String str){
             setState(() {
