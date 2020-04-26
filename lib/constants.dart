@@ -34,7 +34,7 @@ final convertFrom = {"power"           : { "watts" : 1,
                      "volume"          : {"liters":1,
                                           "litres": 1,
                                           "mililiters" : 0.001,
-                                          "floz" : 33.814,
+                                          "floz" : 0.0295735,
                                           "pints": 0.473,
                                           "gallons": 3.78541,},
 
@@ -96,10 +96,16 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                                          "times the length of Chile": 4270000,
                                          "times the width of the Statue of Liberty's mouth": 0.9144,
                                          "times the length of Yonge street, Toronto, Canada" : 1896000,
+                                         "times the length of a penguin's beak" : 18,
+                                         "popsicle sticks" : 4.2,
+                                         "times the length of Salvador Dali's moustache" : 4.2,
                                         },
 
                     "volume"           :{"times the total lung capacity of an adult male": 6,
                                          "first computer ever built":5 ,
+                                         "ping-pong balls":5 ,
+                                         "ripe eggplants":5 ,
+                                         "standard 6-sided dice":5 ,
                                         },
 
                     "mass"             :{"times the mass of the universe":1.5*10e56,
@@ -194,5 +200,6 @@ final subtextList = [
   "I wouldn't bet on it",
   "next time, measure with bananas",
   "just smile and wave, boys",
+  "[x] doubt",
 ];
 
