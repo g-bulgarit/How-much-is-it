@@ -175,7 +175,7 @@ final subtextList = [
   "tehc",
   "the cake is a lie",
   "approximated with Taylor",
-  "put a low pass filter on it",
+  "maybe put a low pass filter on it?",
   "in hexadecimal, that is",
   "try using a bigger bolt to secure that",
   "cool guys dont look at calculations",
