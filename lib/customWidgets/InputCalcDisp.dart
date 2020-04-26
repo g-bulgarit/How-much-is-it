@@ -21,6 +21,7 @@ class InputCalcDisp extends StatefulWidget{
 class _InputCalcDispState extends State<InputCalcDisp> {
   String userText = "";
   String userSubtext = "";
+  String savedInput = "";
   double amtToConvert = 0.0;
   double unitMultiplier = 0.0;
   String unitFrom = "";
@@ -148,6 +149,17 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             "$userSubtext",
           ),
         ),
+
+        Container(
+          child: IconButton(
+            icon: Icon(Icons.refresh), 
+            onPressed: (){
+              setState(() {
+              userText = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
+              userSubtext = getRandomSubtext();
+              });
+            }),
+        )
 
       ],
     );
