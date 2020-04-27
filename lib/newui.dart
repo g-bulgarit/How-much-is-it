@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 import 'customWidgets/InputCalcDisp.dart';
-import 'customWidgets/InfoDialog.dart';
+
 
 void main(){
   runApp(new MaterialApp(
@@ -27,8 +27,6 @@ class AppHomePage extends State<HomePage>{
   String userText = "";
   String userSubtext = "";
 
-  HelpDialog dialog = new HelpDialog();
-
   final TextEditingController textController = new TextEditingController();
 
   @override
@@ -36,37 +34,25 @@ class AppHomePage extends State<HomePage>{
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.symmetric(
-          vertical: 40.0,
-          horizontal: 18.0,
+        padding: EdgeInsets.only(
+          top: 40.0,
+          left: 18.0,
+          right: 18.0,
+          bottom: 6.0,
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [gradientBottom, gradientCenter, gradientTop],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
+            stops: [0.35,0.65,1]
             ),
           ),
-        child: Column(
-          children: <Widget>[
-            InputCalcDisp(
+
+          child:InputCalcDisp(
               userText: "",
               userSubtext: "",
             ),
-            Spacer(),
-            Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.info_outline, color: Colors.white, size: 40,), 
-                onPressed: (){
-                  dialog.widgetHelpDialog(context);
-                }
-                ),
-            ],
-              ),
-          ],
-        ),
       ),
     );
   }

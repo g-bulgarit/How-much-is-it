@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:how_much_is_it/colors.dart';
 
 class HelpDialog{
+
   widgetHelpDialog(BuildContext context){
     return showDialog(
       context: context,
@@ -11,6 +12,7 @@ class HelpDialog{
         return AlertDialog(
           title: Center(child: Text("How To Use", style: Theme.of(context).textTheme.title)),
           backgroundColor: foregroundColorDark,
+          elevation: 24.0,
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:how_much_is_it/constants.dart';
 import 'package:how_much_is_it/colors.dart';
+import 'package:how_much_is_it/customWidgets/InfoDialog.dart';
 import 'dart:math';
 import 'package:sprintf/sprintf.dart';
 
@@ -28,6 +29,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
   String unitFrom = "";
   String categoryFrom = "";
 
+  HelpDialog dialog = new HelpDialog();
   final TextEditingController textController = new TextEditingController();
 
 
@@ -179,7 +181,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
         SizedBox(height: 50,),
 
-
+        Spacer(),
         Center(
           child: Container(
             child: Text(
@@ -190,8 +192,8 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           ),
         ),
 
+        
         SizedBox(height: 50,),
-
         Container(
           child: IconButton(
             icon: Icon(Icons.refresh, size: 50,),
@@ -203,7 +205,19 @@ class _InputCalcDispState extends State<InputCalcDisp> {
               userSubtext = getRandomSubtext();
               });}
           ),
-        )
+        ),
+        
+        Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.info_outline, color: Colors.white, size: 20,), 
+                onPressed: (){
+                  dialog.widgetHelpDialog(context);
+                }
+                ),
+            ],
+              ),
 
       ],
     );
