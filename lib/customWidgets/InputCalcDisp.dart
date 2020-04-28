@@ -162,26 +162,30 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
         SizedBox(height: 50,),
 
-        Container(
-        padding: EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(50),
-          border: Border.all(
-             color: userText != "" ? Colors.white : Colors.transparent,
-             width: 2,
-          )
-        ),
-        child: Text(
-          "$userText",
-          style: Theme.of(context).textTheme.body1,
-          textAlign: TextAlign.center,
-        ),
+        Expanded(
+          child: Center(
+            child: Container(
+            padding: EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(50),
+              // border: Border.all(
+              //    color: userText != "" ? Colors.white : Colors.transparent,
+              //    width: 2,
+              // )
+            ),
+            child: Text(
+              "$userText",
+              style: Theme.of(context).textTheme.body1,
+              textAlign: TextAlign.center,
+            ),
+              ),
           ),
+        ),
 
-        SizedBox(height: 50,),
+        // SizedBox(height: 50,),
 
-        Spacer(),
+        // Spacer(),
         Center(
           child: Container(
             child: Text(
@@ -192,8 +196,8 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           ),
         ),
 
-        
-        SizedBox(height: 50,),
+
+        // SizedBox(height: 50,),
         Container(
           child: IconButton(
             icon: Icon(Icons.refresh, size: 50,),
