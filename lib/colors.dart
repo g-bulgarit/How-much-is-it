@@ -4,6 +4,18 @@ import 'package:flutter/material.dart'; // to use the Color class
 // without explicitly typing out the color every time.
 // Maybe later I will move these to the :constants.dart: file.
 
+// Theme
+
+final appTheme = new ThemeData(
+      fontFamily: 'Bebas',
+      textTheme: TextTheme(
+        title: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold, color: textColorMain),
+        body1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: textColorMain),
+        body2: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: textColorMain),
+        subtitle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: textColorMain),
+        ),
+      );
+
 // Background colors:
 const Color backgroundColorAccent = Color(0xFF379683);
 const Color backgroundColorMain = Color(0xFF5CDB95);
