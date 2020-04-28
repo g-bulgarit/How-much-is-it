@@ -1,21 +1,36 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
 import 'customWidgets/InputCalcDisp.dart';
 
 
-void main(){
-  runApp(new MaterialApp(
-    theme: ThemeData(
-      fontFamily: 'Bebas',
-      textTheme: TextTheme(
-        title: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold, color: textColorMain),
-        body1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: textColorMain),
-        body2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: textColorMain),
-      ),
-    ),
-    home: new HomePage()));
+void main() => runApp(
+  DevicePreview(
+    builder: (context) => MyApplication(),
+  )
+);
+
+class MyApplication extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      locale: DevicePreview.of(context).locale, // <--- Add the locale
+      builder: DevicePreview.appBuilder, // <--- Add the builder
+      title: 'Flutter Demo',
+      theme: appTheme,
+      home: new HomePage(),
+      );
+  }
 }
+
+// Normal app operation:
+// 
+// void main(){
+//   runApp(new MaterialApp(
+//     theme: appTheme,
+//     home: new HomePage()));
+// }
 
 class HomePage extends StatefulWidget {
 
@@ -31,28 +46,30 @@ class AppHomePage extends State<HomePage>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        padding: EdgeInsets.only(
-          top: 40.0,
-          left: 18.0,
-          right: 18.0,
-          bottom: 6.0,
-        ),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [gradientBottom, gradientCenter, gradientTop],
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            stops: [0.35,0.65,1]
-            ),
+    return SafeArea(
+        child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          padding: EdgeInsets.only(
+            top: 40.0,
+            left: 18.0,
+            right: 18.0,
+            bottom: 6.0,
           ),
-
-          child:InputCalcDisp(
-              userText: "",
-              userSubtext: "",
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [gradientBottom, gradientCenter, gradientTop],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              stops: [0.35,0.65,1]
+              ),
             ),
+
+            child:InputCalcDisp(
+                userText: "",
+                userSubtext: "",
+              ),
+        ),
       ),
     );
   }
