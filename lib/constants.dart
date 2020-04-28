@@ -1,6 +1,6 @@
 // This file holds all things constant to be used in the code.
-// I take no responsibilty for shitty conversions, in fact,
-// I blame the reader.
+// I take *no responsibilty* for shitty conversions,
+// in fact, I blame the reader.
 
 final convertFrom = {"power"           : { "watts" : 1,
                                            "horsepower" : 5,
@@ -73,9 +73,6 @@ final convertFrom = {"power"           : { "watts" : 1,
                                           "years": 31536000,
                                           },
 
-                      "temperature"    : {"celsius": 1,
-                                          "kelvin":274.15,
-                                         }
                    };
 
 
@@ -95,7 +92,7 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                                          "times the length of a giraffe's tounge": 0.4826,
                                          "times the length of Chile": 4270000,
                                          "times the width of the Statue of Liberty's mouth": 0.9144,
-                                         "times the length of Yonge street, Toronto, Canada" : 1896000,
+                                        "times the length of Yonge street, Toronto, Canada" : 1896000,
                                          "times the length of an emperor penguin's bill" : 0.0762,
                                          "popsicle sticks" : 0.1143,
                                          "times the length of Salvador Dali's moustache" : 0.25,
@@ -103,38 +100,51 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
 
                     "volume"           :{"times the total lung capacity of an adult male": 6,
                                          "first computer ever built":5 ,
-                                         "ping-pong balls":5 ,
-                                         "ripe eggplants":5 ,
-                                         "standard 6-sided dice":5 ,
+                                         "ping-pong balls":0.03351,
+                                         "ripe eggplants":0.41,
+                                         "standard 6-sided dice":0.00409 ,
+                                         "marbles" : -1,
+                                         "times the volume of the sun" : -1,
                                         },
 
                     "mass"             :{"times the mass of the universe":1.5*10e56,
                                          "times the mass of the average adult blue whale":150000000,
                                          "times the mass of a single-ply toilet paper square":0.0005,
                                          "(WW2) tiger-II tanks":68500,
-                                         "single dollar bills": 0.001
+                                         "single dollar bills": 0.001,
+                                         "times the mass of an anvil" : -1,
+                                         "snowflakes": -1,
+                                         "apple seeds": -1,
+                                         "peacock feathers": -1,
+                                         "times that weight you pick up on holidays (on average)": -1,
                                         },
 
                     "velocity"         :{"times the record speed of the tortoise Bertie":0.28,
                                          "times the average speed of a rabbit":3,
                                          "times the record speed of Usain Bolt":10.43,
                                          "times the fastest record pitch in baseball":3,
-                                         "times the speed with which toenails grow":3,
+                                         "times the speed with which fingernails grow":3,
                                          "times the average speed of a sloth":5,
-                                         "times the speed of a snake's tounge":5
+                                         "times the speed of a snake's tounge":5,
+                                         "times the terminal velocity of a regulation bowling ball": 1,
+                                         "times the dive speed of a seagull": -1,
                                         },
 
-                    "force"            :{"times the maximum g-force on a fighter jet ":2,
-                                         "times the average professional boxer's punch":5,
-                                         "times the force of an averge soccer kick": 5
+                    "force"            :{"times the average professional boxer's punch":3451.82,
+                                         "times the force of an averge soccer kick": 1350,
+                                         "times the force exerted by an average human fart":-1,
                                         },
 
                     "pressure"         :{"a":2,
                                         },
 
                     "time"             :{"times the longest recorded flight of a chicken" : 13,
+                                         "times the average lifespan in indonesia":-1,
+                                         "times the time it takes to bake an apple pie":-1,
+                                         "times the pregnancy length of the common rat":-1,
+                                         "times the half-life time of uranium":-1,
+                                         "parts of the time it takes Uranus to complete a revolution around the sun": -1,
                                         },
-                    "temperature"      :{},
                   };
 
 final subtextList = [
