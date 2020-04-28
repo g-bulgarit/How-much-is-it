@@ -46,31 +46,29 @@ class AppHomePage extends State<HomePage>{
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          padding: EdgeInsets.only(
-            top: 40.0,
-            left: 18.0,
-            right: 18.0,
-            bottom: 6.0,
-          ),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [gradientBottom, gradientCenter, gradientTop],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              stops: [0.35,0.65,1]
-              ),
-            ),
-
-            child:InputCalcDisp(
-                userText: "",
-                userSubtext: "",
-              ),
-        ),
+    return Scaffold(
+    resizeToAvoidBottomInset: false,
+    body: Container(
+      padding: EdgeInsets.only(
+        top: 24.0,
+        left: 18.0,
+        right: 18.0,
+        bottom: 6.0,
       ),
-    );
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [gradientBottom, gradientCenter, gradientTop],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          stops: [0.35,0.65,1]
+          ),
+        ),
+
+        child:InputCalcDisp(
+            userText: "",
+            userSubtext: "",
+          ),
+    ),
+      );
   }
 }
