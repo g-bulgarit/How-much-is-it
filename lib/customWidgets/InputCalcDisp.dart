@@ -129,114 +129,117 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
   @override
   Widget build(BuildContext context){
-    return Column(
-      children: <Widget>[
-        Flexible(
-            flex: 2,
-            child: Container(
-            child: TextField(
-              controller: textController,
-              textAlign: TextAlign.center,
-              textAlignVertical: TextAlignVertical.center,
-              style: Theme.of(context).textTheme.title,
-              decoration: InputDecoration(
-                hintText: "How much is...?",
-                hintStyle: Theme.of(context).textTheme.title,
-                enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: textColorMain, width: 2),
-                        borderRadius: BorderRadius.all(Radius.circular(40))
-                ),
-
-              // On focus:
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: textColorMain, width: 2),
-                borderRadius: BorderRadius.all(Radius.circular(40))
-              ),
-              ),
-            onSubmitted: (String str){
-              setState(() {
-                doCalculations(str);
-              });
-            textController.text = "";
-            },
-            ),
-          ),
-        ),
-
-        SizedBox(height: 50,),
-
-        Flexible(
-          flex: 6,
-          child: Center(
-            child: Container(
-            padding: EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(50),
-              border: Border.all(
-                 color: userText != "" ? Colors.white : Colors.transparent,
-                 width: 2,
-              )
-            ),
-            child: Text(
-              "$userText",
-              style: Theme.of(context).textTheme.body1,
-              textAlign: TextAlign.center,
-            ),
-              ),
-          ),
-        ),
-
-        SizedBox(height: 20,),
-
-        // Spacer(),
-        Flexible(
-            flex:2,
-            child: Center(
-            child: Container(
-              child: Text(
-                "$userSubtext",
+    return GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Column(
+        children: <Widget>[
+          Flexible(
+              flex: 2,
+              child: Container(
+              child: TextField(
+                controller: textController,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.body1,
+                textAlignVertical: TextAlignVertical.center,
+                style: Theme.of(context).textTheme.title,
+                decoration: InputDecoration(
+                  hintText: "How much is...?",
+                  hintStyle: Theme.of(context).textTheme.title,
+                  enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: textColorMain, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(40))
+                  ),
+
+                // On focus:
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: textColorMain, width: 2),
+                  borderRadius: BorderRadius.all(Radius.circular(40))
+                ),
+                ),
+              onSubmitted: (String str){
+                setState(() {
+                  doCalculations(str);
+                });
+              textController.text = "";
+              },
               ),
             ),
           ),
-        ),
 
-        SizedBox(height: 20,),
+          SizedBox(height: 50,),
 
-        Flexible(
-            flex: 1,
-            child: Container(
-            child: IconButton(
-              icon: Icon(Icons.refresh, size: 40,),
-              color: userText != "" ? Colors.white : Colors.transparent,
-              onPressed: userText == "" ? (){}
-                :(){
-                setState(() {
-                userText = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
-                userSubtext = getRandomSubtext();
-                });}
+          Flexible(
+            flex: 6,
+            child: Center(
+              child: Container(
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(
+                   color: userText != "" ? Colors.white : Colors.transparent,
+                   width: 2,
+                )
+              ),
+              child: Text(
+                "$userText",
+                style: Theme.of(context).textTheme.body1,
+                textAlign: TextAlign.center,
+              ),
+                ),
             ),
           ),
-        ),
-        SizedBox(height: 20,),
-        Flexible(
-              flex: 1,
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.info_outline, color: Colors.white, size: 20,), 
-                  onPressed: (){
-                    dialog.widgetHelpDialog(context);
-                  }
-                  ),
-              ],
-                ),
-        ),
 
-      ],
+          SizedBox(height: 20,),
+
+          // Spacer(),
+          Flexible(
+              flex:2,
+              child: Center(
+              child: Container(
+                child: Text(
+                  "$userSubtext",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.body1,
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(height: 20,),
+
+          Flexible(
+              flex: 1,
+              child: Container(
+              child: IconButton(
+                icon: Icon(Icons.refresh, size: 40,),
+                color: userText != "" ? Colors.white : Colors.transparent,
+                onPressed: userText == "" ? (){}
+                  :(){
+                  setState(() {
+                  userText = this.convertToRandomUnit(categoryFrom, unitFrom, amtToConvert, unitMultiplier);
+                  userSubtext = getRandomSubtext();
+                  });}
+              ),
+            ),
+          ),
+          SizedBox(height: 20,),
+          Flexible(
+                flex: 1,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.info_outline, color: Colors.white, size: 20,), 
+                    onPressed: (){
+                      dialog.widgetHelpDialog(context);
+                    }
+                    ),
+                ],
+                  ),
+          ),
+
+        ],
+      ),
     );
   }
 }
