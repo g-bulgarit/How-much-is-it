@@ -1,36 +1,38 @@
-import 'package:device_preview/device_preview.dart';
+// import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
 import 'customWidgets/InputCalcDisp.dart';
 
 
-void main() => runApp(
-  DevicePreview(
-    builder: (context) => MyApplication(),
-  )
-);
+// void main() => runApp(
+//   DevicePreview(
+//     builder: (context) => MyApplication(),
+//   )
+// );
 
-class MyApplication extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.of(context).locale, // <--- Add the locale
-      builder: DevicePreview.appBuilder, // <--- Add the builder
-      title: 'Flutter Demo',
-      theme: appTheme,
-      home: new HomePage(),
-      );
-  }
-}
+// class MyApplication extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       locale: DevicePreview.of(context).locale, // <--- Add the locale
+//       builder: DevicePreview.appBuilder, // <--- Add the builder
+//       title: 'Flutter Demo',
+//       theme: appTheme,
+//       home: new HomePage(),
+//       );
+//   }
+// }
 
 // Normal app operation:
-// 
-// void main(){
-//   runApp(new MaterialApp(
-//     theme: appTheme,
-//     home: new HomePage()));
-// }
+
+void main(){
+  runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: appTheme,
+    home: new HomePage()));
+}
 
 class HomePage extends StatefulWidget {
 
@@ -50,7 +52,7 @@ class AppHomePage extends State<HomePage>{
     resizeToAvoidBottomInset: false,
     body: Container(
       padding: EdgeInsets.only(
-        top: 24.0,
+        top: 36.0,
         left: 18.0,
         right: 18.0,
         bottom: 6.0,
