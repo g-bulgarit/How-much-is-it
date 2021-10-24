@@ -76,6 +76,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
     String toUnit = "";
     double calculatedValue = 0.0;
+    double roundedCalculatedValue = 0.0;
     double conversionValue = 0.0;
 
     // Get size of the convertTo map
@@ -89,18 +90,22 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
     // Do conversion:
     calculatedValue = inUnitValue * inMultiplier.toDouble() /  conversionValue.toDouble();
+    if (calculatedValue > 1){
+      roundedCalculatedValue = calculatedValue.roundToDouble();
+    }
+    else {
+      roundedCalculatedValue = calculatedValue;
+    }
 
     // Consider classification by size here - if the number is very small or very large,
     // maybe a different format would suit it better, like % of or 3*10^24 instead of 3e24
-
     // Use sprintf to format values:
     outputStr = sprintf("%g %s is %g %s", [inUnitValue,
                                            inUnit.toString(),
-                                           calculatedValue,
+                                           roundedCalculatedValue,
                                            toUnit.toString()]);
     return outputStr;
   }
-
 
   String getRandomSubtext(){
     // Returns a random subtext string from the list in constants.dart

@@ -156,6 +156,7 @@ final convertTo = {"power"             : {"hamsters on a wheel" : 0.4,
                                          "parts of the time it takes Uranus to complete a revolution around the sun": 2.65136e9,
                                          "times the average time one spends picking his nose, per day":252,
                                          "times the average life expectency of a mosquito":604800,
+                                         "times the screen time of the movie Shrek™" : 5400,
                                         },
                   };
 

@@ -36,7 +36,7 @@ const Color textColorHint = Color(0xFF379683);
 // Gradients
 const Color gradientBottom = Color(0xFF1FA2FF);
 const Color gradientCenter = Color(0xFF12D8FA);
-const Color gradientTop = Color(0xFFA6FFCB);
+const Color gradientTop = Color(0xFF3255ff);
 
 // Color reference taken from some of these:
 // https://visme.co/blog/wp-content/uploads/2016/09/website25-1024x512.jpg

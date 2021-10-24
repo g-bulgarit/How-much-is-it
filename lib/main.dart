@@ -4,27 +4,6 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'customWidgets/InputCalcDisp.dart';
 
-
-// void main() => runApp(
-//   DevicePreview(
-//     builder: (context) => MyApplication(),
-//   )
-// );
-
-// class MyApplication extends StatelessWidget{
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       locale: DevicePreview.of(context).locale, // <--- Add the locale
-//       builder: DevicePreview.appBuilder, // <--- Add the builder
-//       title: 'Flutter Demo',
-//       theme: appTheme,
-//       home: new HomePage(),
-//       );
-//   }
-// }
-
 // Normal app operation:
 
 void main(){
