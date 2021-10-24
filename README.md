@@ -1,5 +1,5 @@
-<img src="https://i.imgur.com/7Ym7Q4D.png">
-<img src="https://i.imgur.com/YoL2DGy.png">
+<div align="center"><img src="https://i.imgur.com/7Ym7Q4D.png"></div>
+<div align="center"><img src="https://i.imgur.com/YoL2DGy.png"></div>
 
 
 ___________________
