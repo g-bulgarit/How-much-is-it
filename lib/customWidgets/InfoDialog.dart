@@ -28,7 +28,7 @@ class HelpDialog {
                   thickness: 3,
                 ),
                 Text(
-                    '''This app could not have been made without a lot of help from my friends,who I cherish and love.''',
+                    '''This app could not have been made without a lot of help from my friends, who I cherish and love.''',
                     style: Theme.of(context).textTheme.subtitle1),
                 SizedBox(
                   height: 35,
