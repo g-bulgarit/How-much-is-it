@@ -72,7 +72,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     //  - inMultiplier: scale multiplier.
 
     String outputStr = "";
-
+    bool is_approx = false;
     String toUnit = "";
     double calculatedValue = 0.0;
     double roundedCalculatedValue = 0.0;
@@ -92,6 +92,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
         inUnitValue * inMultiplier.toDouble() / conversionValue.toDouble();
     if (calculatedValue > 1) {
       roundedCalculatedValue = calculatedValue.roundToDouble();
+      is_approx = true;
     } else {
       roundedCalculatedValue = calculatedValue;
     }
@@ -99,12 +100,23 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     // Consider classification by size here - if the number is very small or very large,
     // maybe a different format would suit it better, like % of or 3*10^24 instead of 3e24
     // Use sprintf to format values:
-    outputStr = sprintf("%g %s is %g %s", [
-      inUnitValue,
-      inUnit.toString(),
-      roundedCalculatedValue,
-      toUnit.toString()
-    ]);
+    if (!is_approx) {
+      outputStr = sprintf("%s %s is %s %s", [
+        inUnitValue,
+        inUnit.toString(),
+        roundedCalculatedValue,
+        toUnit.toString()
+      ]);
+    } else {
+      outputStr = sprintf("%s %s is approximately %s %s", [
+        inUnitValue,
+        inUnit.toString(),
+        roundedCalculatedValue,
+        toUnit.toString()
+      ]);
+    }
+    is_approx = false;
+
     return outputStr;
   }
 
@@ -143,6 +155,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             flex: 2,
             child: Container(
+              margin: EdgeInsets.only(left: 36, right: 36, top: 20),
               child: TextField(
                 controller: textController,
                 textAlign: TextAlign.center,
@@ -178,6 +191,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             flex: 6,
             child: Center(
               child: Container(
+                margin: EdgeInsets.only(left: 36, right: 36),
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
