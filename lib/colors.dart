@@ -7,14 +7,18 @@ import 'package:flutter/material.dart'; // to use the Color class
 // Theme
 
 final appTheme = new ThemeData(
-      fontFamily: 'Bebas',
-      textTheme: TextTheme(
-        title: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold, color: textColorMain),
-        body1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: textColorMain),
-        body2: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: textColorMain),
-        subtitle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal, color: textColorMain),
-        ),
-      );
+  fontFamily: 'Bebas',
+  textTheme: TextTheme(
+    headline1: TextStyle(
+        fontSize: 36.0, fontWeight: FontWeight.bold, color: textColorMain),
+    bodyText1: TextStyle(
+        fontSize: 30.0, fontWeight: FontWeight.bold, color: textColorMain),
+    bodyText2: TextStyle(
+        fontSize: 25.0, fontWeight: FontWeight.bold, color: textColorMain),
+    subtitle1: TextStyle(
+        fontSize: 20.0, fontWeight: FontWeight.normal, color: textColorMain),
+  ),
+);
 
 // Background colors:
 const Color backgroundColorAccent = Color(0xFF379683);
@@ -31,7 +35,6 @@ const Color foregroundAccent = Color(0xFF6feda8);
 // Text colors
 const Color textColorMain = Color(0xFFEDF5E1);
 const Color textColorHint = Color(0xFF379683);
-
 
 // Gradients
 const Color gradientBottom = Color(0xFF1FA2FF);
