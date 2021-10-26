@@ -10,12 +10,12 @@ ___________________
 ___________________
 
 
-APK download link: [here](https://drive.google.com/file/d/1i5QXnxQuaqlTSRIu8pLV9cp7x2Nr6RyX/view?usp=sharing).
+APK download link: [here](https://drive.google.com/file/d/1jnJtYDsEYVhDWMaxAlfl3huJoePelvSi/view?usp=sharing).
 Should work on most android devices.
 
 Use at your own risk. You can view the source, but you can't know that the compiled version is the same as the source.
 
-The current compiled build is from commit **67de5b9**.
+The current compiled build is from commit **259d16c**.
 
 
 Made with **Flutter**,\
