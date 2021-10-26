@@ -230,7 +230,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           ),
 
           SizedBox(
-            height: 20,
+            height: 10,
           ),
 
           // Spacer(),
@@ -249,7 +249,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           ),
 
           SizedBox(
-            height: 20,
+            height: 10,
           ),
 
           Flexible(
@@ -274,13 +274,15 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 40,
           ),
-          Flexible(
-            flex: 1,
+          Container(
+            constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
+                Text("Irrelevant answers to your most pressing issues.",
+                    style: Theme.of(context).textTheme.subtitle1),
                 IconButton(
                     icon: Icon(
                       Icons.info_outline,
