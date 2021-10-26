@@ -75,7 +75,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     bool is_approx = false;
     String toUnit = "";
     double calculatedValue = 0.0;
-    double roundedCalculatedValue = 0.0;
+    String roundedCalculatedValue = "";
     double conversionValue = 0.0;
 
     // Get size of the convertTo map
@@ -91,10 +91,17 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     calculatedValue =
         inUnitValue * inMultiplier.toDouble() / conversionValue.toDouble();
     if (calculatedValue > 1) {
-      roundedCalculatedValue = calculatedValue.roundToDouble();
+      roundedCalculatedValue = calculatedValue.roundToDouble().toString();
       is_approx = true;
     } else {
-      roundedCalculatedValue = calculatedValue;
+      // Handle floating point rounding here?
+      int fp_amount = calculatedValue.toString().length;
+      int zero_amt = RegExp("0").allMatches(calculatedValue.toString()).length;
+      if (zero_amt > 3) {
+        roundedCalculatedValue = calculatedValue.toStringAsFixed(zero_amt);
+      } else {
+        roundedCalculatedValue = calculatedValue.toString();
+      }
     }
 
     // Consider classification by size here - if the number is very small or very large,
@@ -125,9 +132,9 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     var rng = new Random();
     int sizeofList = subtextList.length;
     int randEntryLoc = rng.nextInt(sizeofList);
-
     return subtextList[randEntryLoc];
   }
+
   // ----------------------------------------
 
   void doCalculations(String inStr) {
