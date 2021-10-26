@@ -96,7 +96,6 @@ class _InputCalcDispState extends State<InputCalcDisp> {
       is_approx = true;
     } else {
       // Handle floating point rounding here?
-      int fp_amount = calculatedValue.toString().length;
       int zero_amt = RegExp("0").allMatches(calculatedValue.toString()).length;
       if (zero_amt >= 2) {
         roundedCalculatedValue = calculatedValue.toStringAsFixed(zero_amt);
