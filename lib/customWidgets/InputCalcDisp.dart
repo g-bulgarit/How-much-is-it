@@ -25,6 +25,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
   double unitMultiplier = 0.0;
   String unitFrom = "";
   String categoryFrom = "";
+  bool showHelpMessage = true;
 
   HelpDialog dialog = new HelpDialog();
   final TextEditingController textController = new TextEditingController();
@@ -151,6 +152,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     userText = this.convertToRandomUnit(
         categoryFrom, unitFrom, amtToConvert, unitMultiplier);
     userSubtext = getRandomSubtext();
+    showHelpMessage = false;
   }
 
   @override
@@ -162,7 +164,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             flex: 2,
             child: Container(
-              margin: EdgeInsets.only(left: 36, right: 36, top: 20),
+              margin: EdgeInsets.only(left: 36, right: 36, top: 36),
               child: TextField(
                 controller: textController,
                 textAlign: TextAlign.center,
@@ -188,6 +190,15 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                 },
               ),
             ),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+
+          Container(
+            child: Text(
+                showHelpMessage ? "(Input your irrelevant question here)" : "",
+                style: Theme.of(context).textTheme.subtitle1),
           ),
 
           SizedBox(

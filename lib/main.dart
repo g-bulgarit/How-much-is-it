@@ -30,9 +30,9 @@ class AppHomePage extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.only(
-          top: 36.0,
-          left: 18.0,
-          right: 18.0,
+          top: 48.0,
+          left: 28.0,
+          right: 28.0,
           bottom: 6.0,
         ),
         decoration: BoxDecoration(
@@ -40,7 +40,7 @@ class AppHomePage extends State<HomePage> {
               colors: [gradientBottom, gradientTop],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [0.35, 1]),
+              stops: [0.1, 1]),
         ),
         child: InputCalcDisp(
           userText: "",
