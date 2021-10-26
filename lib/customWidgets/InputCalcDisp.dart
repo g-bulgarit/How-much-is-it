@@ -98,7 +98,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
       // Handle floating point rounding here?
       int fp_amount = calculatedValue.toString().length;
       int zero_amt = RegExp("0").allMatches(calculatedValue.toString()).length;
-      if (zero_amt > 3) {
+      if (zero_amt >= 2) {
         roundedCalculatedValue = calculatedValue.toStringAsFixed(zero_amt);
       } else {
         roundedCalculatedValue = calculatedValue.toString();
@@ -109,7 +109,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     // maybe a different format would suit it better, like % of or 3*10^24 instead of 3e24
     // Use sprintf to format values:
     if (!is_approx) {
-      outputStr = sprintf("%s %s is %s %s", [
+      outputStr = sprintf("%s %s is about %s %s", [
         inUnitValue,
         inUnit.toString(),
         roundedCalculatedValue,
@@ -164,6 +164,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             flex: 2,
             child: Container(
+              constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
               margin: EdgeInsets.only(left: 36, right: 36, top: 36),
               child: TextField(
                 controller: textController,
@@ -196,6 +197,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           ),
 
           Container(
+            constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
             child: Text(
                 showHelpMessage ? "(Input your irrelevant question here)" : "",
                 style: Theme.of(context).textTheme.subtitle1),
@@ -209,6 +211,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             flex: 6,
             child: Center(
               child: Container(
+                constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
                 margin: EdgeInsets.only(left: 36, right: 36),
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
@@ -236,6 +239,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             flex: 2,
             child: Center(
               child: Container(
+                constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
                 child: Text(
                   "$userSubtext",
                   textAlign: TextAlign.center,
@@ -252,6 +256,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             flex: 1,
             child: Container(
+              constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
               child: IconButton(
                   icon: Icon(
                     Icons.refresh,
