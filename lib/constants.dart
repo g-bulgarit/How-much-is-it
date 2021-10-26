@@ -96,6 +96,7 @@ final convertTo = {
   },
   "energy": {
     "times the recoil from an AK47 shot": 2108,
+    "times the energy released from lighting a fart on fire": 511,
     "the energy consumed in one hour of sleep": 376560,
     "times the energy consumption of New York City per hour": 39600000000000,
   },
