@@ -198,12 +198,14 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Container(
             constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
             child: Text(
-                showHelpMessage ? "(Input your irrelevant question here)" : "",
+                showHelpMessage
+                    ? "( Input your irrelevant question here )"
+                    : "",
                 style: Theme.of(context).textTheme.subtitle1),
           ),
 
           SizedBox(
-            height: 50,
+            height: 20,
           ),
 
           Flexible(
@@ -274,26 +276,29 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 20,
           ),
           Container(
             constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Text("Irrelevant answers to your most pressing issues.",
-                    style: Theme.of(context).textTheme.subtitle1),
+                Text("Irrelevant answers to your pressing issues.",
+                    style: Theme.of(context).textTheme.subtitle2),
                 IconButton(
                     icon: Icon(
                       Icons.info_outline,
                       color: Colors.white,
-                      size: 20,
+                      size: 18,
                     ),
                     onPressed: () {
                       dialog.widgetHelpDialog(context);
                     }),
               ],
             ),
+          ),
+          SizedBox(
+            height: 10,
           ),
         ],
       ),

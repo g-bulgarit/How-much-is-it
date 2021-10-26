@@ -15,6 +15,8 @@ final appTheme = new ThemeData(
         fontSize: 25.0, fontWeight: FontWeight.bold, color: textColorMain),
     subtitle1: TextStyle(
         fontSize: 20.0, fontWeight: FontWeight.normal, color: textColorMain),
+    subtitle2: TextStyle(
+        fontSize: 16.0, fontWeight: FontWeight.w100, color: textColorMain),
   ),
 );
 
