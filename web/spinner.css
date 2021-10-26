@@ -1,17 +1,16 @@
 .loader, .loader:after {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
     border-radius: 50%;
     width: 10em;
     height: 10em; 
 }
 
 .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
     font-size: 10px;
     text-indent: -9999em;
     border-top: 1.1em solid rgba(0, 217, 255, 0.2);
