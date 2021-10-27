@@ -10,12 +10,9 @@ ___________________
 ___________________
 
 
-APK download link: [here](https://drive.google.com/file/d/1jnJtYDsEYVhDWMaxAlfl3huJoePelvSi/view?usp=sharing).
-Should work on most android devices.
+APK download can be found in the **Releases** section.
 
-Use at your own risk. You can view the source, but you can't know that the compiled version is the same as the source.
-
-The current compiled build is from commit **259d16c**.
+Note that it should work on most Android devices, but I only tested on a small handful.
 
 
 Made with **Flutter**,\
