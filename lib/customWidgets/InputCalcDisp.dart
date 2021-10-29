@@ -182,6 +182,15 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                 decoration: InputDecoration(
                   hintText: "How much is...?",
                   hintStyle: Theme.of(context).textTheme.headline1,
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.send, color: Colors.white),
+                    onPressed: () {
+                      setState(() {
+                        doCalculations(textController.text);
+                        textController.text = "";
+                      });
+                    },
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: textColorMain, width: 2),
                       borderRadius: BorderRadius.all(Radius.circular(40))),
