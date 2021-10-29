@@ -32,6 +32,7 @@ final convertFrom = {
     "kilometers": 1000,
     "km": 1000,
     "miles": 1600,
+    "mile": 1600,
     "inches": 39.37,
     "foot": 3.28084,
     "feet": 3.28084,

@@ -8,9 +8,9 @@ final appTheme = new ThemeData(
   fontFamily: 'Bebas',
   textTheme: TextTheme(
     headline1: TextStyle(
-        fontSize: 36.0, fontWeight: FontWeight.bold, color: textColorMain),
-    bodyText1: TextStyle(
         fontSize: 30.0, fontWeight: FontWeight.bold, color: textColorMain),
+    bodyText1: TextStyle(
+        fontSize: 26.0, fontWeight: FontWeight.bold, color: textColorMain),
     bodyText2: TextStyle(
         fontSize: 25.0, fontWeight: FontWeight.bold, color: textColorMain),
     subtitle1: TextStyle(

@@ -20,7 +20,7 @@ class HelpDialog {
                 Text("try the following:",
                     style: Theme.of(context).textTheme.bodyText2),
                 Text(
-                    "Miles, Minutes, Liters, Watts, Tons...\nwho am I to judge?",
+                    "<num> Miles, Minutes, Liters, Watts, Tons...\nwho am I to judge?\nExample: 50 meters",
                     style: Theme.of(context).textTheme.subtitle1),
                 Divider(
                   height: 20,

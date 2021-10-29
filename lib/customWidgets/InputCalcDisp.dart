@@ -159,12 +159,21 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Flexible(
-            flex: 2,
-            child: Container(
-              constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
-              margin: EdgeInsets.only(left: 36, right: 36, top: 36),
+          Container(
+            constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
+            margin: EdgeInsets.only(top: 20, left: 36, right: 36, bottom: 20),
+            child: RawKeyboardListener(
+              focusNode: FocusNode(),
+              onKey: (event) {
+                if (event.logicalKey.keyId == 54) {
+                  setState(() {
+                    doCalculations(textController.text);
+                  });
+                  textController.text = "";
+                }
+              },
               child: TextField(
                 controller: textController,
                 textAlign: TextAlign.center,
@@ -191,42 +200,31 @@ class _InputCalcDispState extends State<InputCalcDisp> {
               ),
             ),
           ),
-          SizedBox(
-            height: 8,
-          ),
 
           Container(
-            constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
-            child: Text(
-                showHelpMessage
-                    ? "( Input your irrelevant question here )"
-                    : "",
+            alignment: Alignment.center,
+            constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
+            margin: EdgeInsets.only(top: 8, bottom: 16),
+            child: Text(showHelpMessage ? "( Try \"50 meters\" )" : "",
                 style: Theme.of(context).textTheme.subtitle1),
           ),
 
-          SizedBox(
-            height: 20,
-          ),
-
-          Flexible(
-            flex: 6,
-            child: Center(
-              child: Container(
-                constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
-                margin: EdgeInsets.only(left: 36, right: 36),
-                padding: EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(
-                      color: userText != "" ? Colors.white : Colors.transparent,
-                      width: 2,
-                    )),
-                child: Text(
-                  "$userText",
-                  style: Theme.of(context).textTheme.bodyText1,
-                  textAlign: TextAlign.center,
-                ),
+          Center(
+            child: Container(
+              constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
+              margin: EdgeInsets.only(left: 36, right: 36),
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(
+                    color: userText != "" ? Colors.white : Colors.transparent,
+                    width: 2,
+                  )),
+              child: Text(
+                "$userText",
+                style: Theme.of(context).textTheme.bodyText1,
+                textAlign: TextAlign.center,
               ),
             ),
           ),
@@ -240,7 +238,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             flex: 2,
             child: Center(
               child: Container(
-                constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
+                constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
                 child: Text(
                   "$userSubtext",
                   textAlign: TextAlign.center,
@@ -257,7 +255,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             flex: 1,
             child: Container(
-              constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
+              constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
               child: IconButton(
                   icon: Icon(
                     Icons.refresh,
@@ -279,7 +277,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             height: 20,
           ),
           Container(
-            constraints: BoxConstraints(minWidth: 100, maxWidth: 800),
+            constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[

@@ -29,12 +29,6 @@ class AppHomePage extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.only(
-          top: 48.0,
-          left: 28.0,
-          right: 28.0,
-          bottom: 6.0,
-        ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [gradientBottom, gradientTop],
