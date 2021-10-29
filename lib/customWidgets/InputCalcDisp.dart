@@ -183,6 +183,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                   hintText: "How much is...?",
                   hintStyle: Theme.of(context).textTheme.headline1,
                   suffixIcon: IconButton(
+                    padding: EdgeInsets.all(15),
                     icon: Icon(Icons.send, color: Colors.white),
                     onPressed: () {
                       setState(() {
