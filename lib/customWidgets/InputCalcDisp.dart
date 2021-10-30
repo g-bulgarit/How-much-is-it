@@ -9,10 +9,16 @@ import 'package:sprintf/sprintf.dart';
 class InputCalcDisp extends StatefulWidget {
   final String userText;
   final String userSubtext;
+  final String currentUnit;
+  final String currentSubtext;
 
   // State object
 
-  InputCalcDisp({@required this.userText, @required this.userSubtext});
+  InputCalcDisp(
+      {@required this.userText,
+      @required this.userSubtext,
+      @required this.currentUnit,
+      @required this.currentSubtext});
   @override
   _InputCalcDispState createState() => _InputCalcDispState();
 }
@@ -20,6 +26,8 @@ class InputCalcDisp extends StatefulWidget {
 class _InputCalcDispState extends State<InputCalcDisp> {
   String userText = "";
   String userSubtext = "";
+  String currentSubtext = "";
+  String currentUnit = "";
   String savedInput = "";
   double amtToConvert = 0.0;
   double unitMultiplier = 0.0;
@@ -72,20 +80,30 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     //  - inUnitValue: the user's numeric input.
     //  - inMultiplier: scale multiplier.
 
+    String currentSelectedUnit = currentUnit;
     String outputStr = "";
     bool is_approx = false;
     String toUnit = "";
     double calculatedValue = 0.0;
     String roundedCalculatedValue = "";
     double conversionValue = 0.0;
-
+    bool doneSelectingRandom = false;
     // Get size of the convertTo map
     int maxSize = convertTo[inCategory].length;
 
     // Pick random unit from constants.convertTo and convert to it!
-    var rng = new Random();
-    int randEntryLoc = rng.nextInt(maxSize);
-    toUnit = convertTo[inCategory].keys.toList()[randEntryLoc].toString();
+    while (!doneSelectingRandom) {
+      var rng = new Random();
+      int randEntryLoc = rng.nextInt(maxSize);
+      toUnit = convertTo[inCategory].keys.toList()[randEntryLoc].toString();
+
+      if (toUnit == currentSelectedUnit) {
+        doneSelectingRandom = false;
+      } else {
+        doneSelectingRandom = true;
+        currentUnit = toUnit;
+      }
+    }
     conversionValue = convertTo[inCategory][toUnit].toDouble();
 
     // Do conversion:
@@ -123,6 +141,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
       ]);
     }
     is_approx = false;
+    doneSelectingRandom = false;
 
     return outputStr;
   }
