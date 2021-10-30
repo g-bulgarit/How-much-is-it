@@ -39,6 +39,8 @@ class AppHomePage extends State<HomePage> {
         child: InputCalcDisp(
           userText: "",
           userSubtext: "",
+          currentSubtext: "",
+          currentUnit: "",
         ),
       ),
     );

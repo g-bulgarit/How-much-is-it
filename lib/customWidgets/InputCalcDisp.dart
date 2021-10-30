@@ -148,10 +148,21 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
   String getRandomSubtext() {
     // Returns a random subtext string from the list in constants.dart
-    var rng = new Random();
+    bool doneSelecting = false;
     int sizeofList = subtextList.length;
-    int randEntryLoc = rng.nextInt(sizeofList);
-    return subtextList[randEntryLoc];
+    String currentSelectedSubtext = currentSubtext;
+
+    while (!doneSelecting) {
+      var rng = new Random();
+      int randEntryLoc = rng.nextInt(sizeofList);
+      if (subtextList[randEntryLoc] == currentSelectedSubtext) {
+        doneSelecting = false;
+      } else {
+        doneSelecting = true;
+        currentSubtext = subtextList[randEntryLoc];
+      }
+    }
+    return currentSubtext;
   }
 
   // ----------------------------------------
