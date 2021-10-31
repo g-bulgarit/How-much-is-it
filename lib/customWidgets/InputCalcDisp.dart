@@ -11,6 +11,7 @@ class InputCalcDisp extends StatefulWidget {
   final String userSubtext;
   final String currentUnit;
   final String currentSubtext;
+  final String hintText;
 
   // State object
 
@@ -18,7 +19,8 @@ class InputCalcDisp extends StatefulWidget {
       {@required this.userText,
       @required this.userSubtext,
       @required this.currentUnit,
-      @required this.currentSubtext});
+      @required this.currentSubtext,
+      @required this.hintText});
   @override
   _InputCalcDispState createState() => _InputCalcDispState();
 }
@@ -26,6 +28,7 @@ class InputCalcDisp extends StatefulWidget {
 class _InputCalcDispState extends State<InputCalcDisp> {
   String userText = "";
   String userSubtext = "";
+  String hintText = "try 50 meters";
   String currentSubtext = "";
   String currentUnit = "";
   String savedInput = "";
@@ -143,6 +146,14 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     is_approx = false;
     doneSelectingRandom = false;
 
+    // Set new hinttext and amt:
+    var rng = new Random();
+    int randomHintNumber = rng.nextInt(1000);
+    int randomSelectionNumber = rng.nextInt(maxSize);
+    String hintTextUnit =
+        convertFrom[inCategory].keys.toList()[randomSelectionNumber].toString();
+    hintText = "Try " + randomHintNumber.toString() + " " + hintTextUnit;
+
     return outputStr;
   }
 
@@ -245,7 +256,10 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             alignment: Alignment.center,
             constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
             margin: EdgeInsets.only(top: 8, bottom: 16),
-            child: Text(showHelpMessage ? "( Try \"50 meters\" )" : "",
+            child: Text(
+                showHelpMessage
+                    ? "( Enter your irrelevant conversion here )"
+                    : "",
                 style: Theme.of(context).textTheme.subtitle1),
           ),
 
@@ -295,6 +309,8 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             flex: 1,
             child: Container(
+              margin: EdgeInsets.only(left: 36, right: 36),
+              padding: EdgeInsets.all(16.0),
               constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
               child: IconButton(
                   icon: Icon(
@@ -316,6 +332,19 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           SizedBox(
             height: 20,
           ),
+
+          Container(
+              margin: EdgeInsets.only(left: 36, right: 36),
+              padding: EdgeInsets.all(16.0),
+              constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text("Writer's Block? "),
+                  Text("$hintText"),
+                ],
+              )),
+
           Container(
             constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
             child: Row(

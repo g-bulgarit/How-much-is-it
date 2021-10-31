@@ -170,6 +170,7 @@ final convertTo = {
     "times the time it takes to bake an apple pie": 4200,
     "times the pregnancy term of the common brown rat": 1.814e6,
     "times the half-life time of uranium": 1.4096592e17,
+    "times the amount of time it takes you to sing the macarena": 254,
     "parts of the time it takes Uranus to complete a revolution around the sun":
         2.65136e9,
     "times the average time one spends picking his nose, per day": 252,

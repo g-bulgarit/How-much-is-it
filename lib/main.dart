@@ -41,6 +41,7 @@ class AppHomePage extends State<HomePage> {
           userSubtext: "",
           currentSubtext: "",
           currentUnit: "",
+          hintText: "",
         ),
       ),
     );
