@@ -156,7 +156,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
     // Set new hinttext and amt:
     var rng = new Random();
-    int randomHintNumber = rng.nextInt(1000);
+    int randomHintNumber = rng.nextInt(100);
     int randomSelectionNumber = rng.nextInt(maxSize);
     String hintTextUnit =
         convertFrom[inCategory].keys.toList()[randomSelectionNumber].toString();
@@ -344,8 +344,14 @@ class _InputCalcDispState extends State<InputCalcDisp> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Writer's Block? "),
-                  Text("$hintText"),
+                  Text(
+                    "Writer's Block? ",
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  Text(
+                    "$hintText",
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
                 ],
               )),
 
