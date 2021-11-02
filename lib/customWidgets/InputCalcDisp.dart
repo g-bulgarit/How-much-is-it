@@ -233,7 +233,8 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                   hintStyle: Theme.of(context).textTheme.headline1,
                   suffixIcon: IconButton(
                     padding: EdgeInsets.all(15),
-                    icon: Icon(Icons.send, color: Colors.white),
+                    icon: Icon(Icons.search_rounded, color: Colors.white),
+                    iconSize: 30,
                     onPressed: () {
                       setState(() {
                         doCalculations(textController.text);
