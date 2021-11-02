@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:how_much_is_it/constants.dart';
 import 'package:how_much_is_it/colors.dart';
 import 'package:how_much_is_it/customWidgets/InfoDialog.dart';
+import 'package:how_much_is_it/customWidgets/ErrorDialog.dart';
 import 'dart:math';
 import 'package:sprintf/sprintf.dart';
 
@@ -39,6 +40,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
   bool showHelpMessage = true;
 
   HelpDialog dialog = new HelpDialog();
+  ErrorDialog err_dialog = new ErrorDialog();
   final TextEditingController textController = new TextEditingController();
 
   // ------------------ Functions -----------
@@ -72,6 +74,12 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             ];
           }
         })));
+
+    if (output.isEmpty) {
+      // The unit does not exist...
+      err_dialog.widgetErrorDialog(context, inputStr);
+      textController.text = "";
+    }
     return output;
   }
 
