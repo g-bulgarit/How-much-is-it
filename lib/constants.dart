@@ -149,7 +149,7 @@ final convertTo = {
     "ping-pong balls": 0.03351,
     "ripe eggplants": 0.41,
     "standard 6-sided dice": 0.00409,
-    "marbles": 1.15e-9,
+    "marbles": 1 / 288,
     "times the volume of the sun": 1.4e30,
   },
   "mass": {
