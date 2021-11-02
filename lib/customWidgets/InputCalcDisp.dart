@@ -156,7 +156,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
     // Set new hinttext and amt:
     var rng = new Random();
-    int randomHintNumber = rng.nextInt(100);
+    int randomHintNumber = rng.nextInt(99) + 1;
     int categoryMaxSize = convertFrom.length;
     int randomCategoryIdx = rng.nextInt(categoryMaxSize);
 
