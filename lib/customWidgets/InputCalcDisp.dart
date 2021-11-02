@@ -293,7 +293,8 @@ class _InputCalcDispState extends State<InputCalcDisp> {
           Flexible(
             child: Center(
               child: Container(
-                padding: EdgeInsets.only(bottom: 16.0, top: 16.0),
+                padding: EdgeInsets.only(
+                    top: 16.0, bottom: 16.0, left: 24, right: 24),
                 constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
                 child: Text(
                   "$userSubtext",
