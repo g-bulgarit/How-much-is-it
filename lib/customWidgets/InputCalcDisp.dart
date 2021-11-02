@@ -157,11 +157,17 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     // Set new hinttext and amt:
     var rng = new Random();
     int randomHintNumber = rng.nextInt(100);
-    int randomSelectionNumber = rng.nextInt(maxSize);
-    String hintTextUnit =
-        convertFrom[inCategory].keys.toList()[randomSelectionNumber].toString();
-    hintText = "Try: " + randomHintNumber.toString() + " " + hintTextUnit;
+    int categoryMaxSize = convertFrom.length;
+    int randomCategoryIdx = rng.nextInt(categoryMaxSize);
 
+    String randomCategoryKey = convertFrom.keys.toList()[randomCategoryIdx];
+
+    int unitMaxSize = convertFrom[randomCategoryKey].length;
+    int randomUnitIdx = rng.nextInt(unitMaxSize);
+
+    String hintTextUnit =
+        convertFrom[randomCategoryKey].keys.toList()[randomUnitIdx].toString();
+    hintText = "Try: " + randomHintNumber.toString() + " " + hintTextUnit;
     return outputStr;
   }
 
