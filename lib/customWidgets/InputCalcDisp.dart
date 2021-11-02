@@ -289,7 +289,6 @@ class _InputCalcDispState extends State<InputCalcDisp> {
 
           // Spacer(),
           Flexible(
-            flex: 2,
             child: Center(
               child: Container(
                 constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
@@ -306,39 +305,36 @@ class _InputCalcDispState extends State<InputCalcDisp> {
             height: 10,
           ),
 
-          Flexible(
-            flex: 1,
-            child: Container(
-              margin: EdgeInsets.only(left: 36, right: 36),
-              padding: EdgeInsets.all(16.0),
-              constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
-              child: IconButton(
-                  icon: Icon(
-                    Icons.refresh,
-                    size: 40,
-                  ),
-                  color: userText != "" ? Colors.white : Colors.transparent,
-                  onPressed: userText == ""
-                      ? () {}
-                      : () {
-                          setState(() {
-                            userText = this.convertToRandomUnit(categoryFrom,
-                                unitFrom, amtToConvert, unitMultiplier);
-                            userSubtext = getRandomSubtext();
-                          });
-                        }),
-            ),
+          Container(
+            margin: EdgeInsets.only(left: 36, right: 36),
+            padding: EdgeInsets.all(16.0),
+            constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
+            child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  size: 40,
+                ),
+                color: userText != "" ? Colors.white : Colors.transparent,
+                onPressed: userText == ""
+                    ? () {}
+                    : () {
+                        setState(() {
+                          userText = this.convertToRandomUnit(categoryFrom,
+                              unitFrom, amtToConvert, unitMultiplier);
+                          userSubtext = getRandomSubtext();
+                        });
+                      }),
           ),
           SizedBox(
             height: 20,
           ),
 
           Container(
-              margin: EdgeInsets.only(left: 36, right: 36),
+              margin: EdgeInsets.only(left: 36, right: 36, bottom: 8),
               padding: EdgeInsets.all(16.0),
               constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("Writer's Block? "),
                   Text("$hintText"),
