@@ -29,7 +29,7 @@ class InputCalcDisp extends StatefulWidget {
 class _InputCalcDispState extends State<InputCalcDisp> {
   String userText = "";
   String userSubtext = "";
-  String hintText = "try 50 meters";
+  String hintText = "try: 50 meters";
   String currentSubtext = "";
   String currentUnit = "";
   String savedInput = "";
@@ -160,7 +160,7 @@ class _InputCalcDispState extends State<InputCalcDisp> {
     int randomSelectionNumber = rng.nextInt(maxSize);
     String hintTextUnit =
         convertFrom[inCategory].keys.toList()[randomSelectionNumber].toString();
-    hintText = "Try " + randomHintNumber.toString() + " " + hintTextUnit;
+    hintText = "Try: " + randomHintNumber.toString() + " " + hintTextUnit;
 
     return outputStr;
   }
@@ -260,26 +260,25 @@ class _InputCalcDispState extends State<InputCalcDisp> {
               ),
             ),
           ),
-
           Container(
             alignment: Alignment.center,
             constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
-            margin: EdgeInsets.only(top: 8, bottom: 16),
+            margin: EdgeInsets.only(top: 8, bottom: 8),
             child: Text(
                 showHelpMessage
                     ? "( Enter your irrelevant conversion here )"
                     : "",
                 style: Theme.of(context).textTheme.subtitle1),
           ),
-
           Center(
             child: Container(
               constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
               margin: EdgeInsets.only(left: 36, right: 36),
-              padding: EdgeInsets.all(16.0),
+              padding:
+                  EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24, right: 24),
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(25),
                   border: Border.all(
                     color: userText != "" ? Colors.white : Colors.transparent,
                     width: 2,
@@ -291,15 +290,10 @@ class _InputCalcDispState extends State<InputCalcDisp> {
               ),
             ),
           ),
-
-          SizedBox(
-            height: 10,
-          ),
-
-          // Spacer(),
           Flexible(
             child: Center(
               child: Container(
+                padding: EdgeInsets.only(bottom: 16.0, top: 16.0),
                 constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
                 child: Text(
                   "$userSubtext",
@@ -309,19 +303,14 @@ class _InputCalcDispState extends State<InputCalcDisp> {
               ),
             ),
           ),
-
-          SizedBox(
-            height: 10,
-          ),
-
           Container(
-            margin: EdgeInsets.only(left: 36, right: 36),
+            // margin: EdgeInsets.only(left: 36, right: 36),
             padding: EdgeInsets.all(16.0),
             constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
             child: IconButton(
                 icon: Icon(
                   Icons.refresh,
-                  size: 40,
+                  size: 30,
                 ),
                 color: userText != "" ? Colors.white : Colors.transparent,
                 onPressed: userText == ""
@@ -334,13 +323,9 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                         });
                       }),
           ),
-          SizedBox(
-            height: 20,
-          ),
-
           Container(
               margin: EdgeInsets.only(left: 36, right: 36, bottom: 8),
-              padding: EdgeInsets.all(16.0),
+              padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
               constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -355,8 +340,8 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                   ),
                 ],
               )),
-
           Container(
+            padding: EdgeInsets.only(bottom: 16.0, top: 16.0),
             constraints: BoxConstraints(minWidth: 400, maxWidth: 800),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -374,9 +359,6 @@ class _InputCalcDispState extends State<InputCalcDisp> {
                     }),
               ],
             ),
-          ),
-          SizedBox(
-            height: 10,
           ),
         ],
       ),
