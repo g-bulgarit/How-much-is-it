@@ -119,6 +119,7 @@ final convertTo = {
     "AA batteries (per hour)": 3.9,
     "washing machines": 500,
     "(rather average) microwaves": 800,
+    "in donkey-power": 250,
   },
   "energy": {
     "times the recoil from an AK47 shot": 2108,
@@ -127,6 +128,7 @@ final convertTo = {
     "times the energy consumption of New York City per hour": 39600000000000,
   },
   "length": {
+    "times the height of shaquille o'neal": 2.16,
     "times the length of an average banana": 0.1905,
     "times the width of a pinky finger": 0.0127,
     "times the length of your small intestine": 3.9624,
@@ -191,6 +193,8 @@ final convertTo = {
     "times the peak pressure exerted by an average human fart": 1013.5293,
   },
   "time": {
+    "jiffys": 0.01,
+    "times the fastest recorded marathon run": 7299,
     "times the longest recorded flight of a chicken": 13,
     "times the average lifespan in indonesia": 2.24789e9,
     "times the time it takes to bake an apple pie": 4200,
